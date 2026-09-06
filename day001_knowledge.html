@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 1 · 知识点卡片</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:#F6F6F8; color:#1F2329; line-height:1.7;
+  }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+
+  header { padding:6px 4px 16px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why b { color:#1F2329; }
+
+  .card { background:#fff; border-radius:22px; box-shadow:0 8px 30px rgba(31,35,41,.07), 0 1px 3px rgba(31,35,41,.04); padding:22px 20px; margin-bottom:16px; }
+  .card h2 { font-size:19px; display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+  .card h2 .num { font-size:12px; color:#fff; background:#FF6B00; border-radius:8px; padding:2px 8px; font-weight:700; flex:none; }
+  .card .sub { font-size:12px; color:#8A8F99; margin-bottom:14px; }
+
+  .examdate { display:flex; align-items:baseline; gap:10px; margin-bottom:14px; }
+  .examdate b { font-size:24px; color:#FF6B00; font-weight:800; }
+  .examdate span { font-size:13px; color:#5A6070; }
+
+  .tl { border-left:2px solid #FFE3CC; margin:4px 0 14px 6px; padding-left:16px; }
+  .tl .row { position:relative; padding:5px 0; font-size:14.5px; }
+  .tl .row::before { content:''; position:absolute; left:-21px; top:13px; width:8px; height:8px; border-radius:99px; background:#FF6B00; }
+  .tl .row b { color:#FF6B00; font-size:13px; font-variant-numeric:tabular-nums; margin-right:8px; }
+  .tl .row.warn { color:#C2410C; }
+  .tl .row.warn::before { background:#C2410C; }
+
+  table { width:100%; border-collapse:collapse; margin:6px 0 4px; }
+  th { font-size:12px; color:#8A8F99; font-weight:600; text-align:left; padding:6px 4px; border-bottom:1px solid #F2F2F5; }
+  td { font-size:14.5px; padding:8px 4px; border-bottom:1px solid #F2F2F5; }
+  td.v { font-weight:700; font-variant-numeric:tabular-nums; }
+  td .bar { display:block; height:6px; border-radius:99px; background:#FFF3E9; margin-top:5px; overflow:hidden; }
+  td .bar i { display:block; height:100%; background:linear-gradient(90deg,#FF9A40,#FF6B00); border-radius:99px; }
+  tr.total td { border-bottom:none; font-size:15px; }
+  tr.total td.v { color:#FF6B00; font-weight:800; }
+
+  .tip { background:#FFF7EF; border-radius:14px; padding:10px 14px; font-size:13.5px; color:#7A4A21; margin-top:10px; }
+  .tip b { color:#C2410C; }
+
+  .rank .row { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid #F2F2F5; }
+  .rank .row:last-child { border-bottom:none; }
+  .rank .medal { font-size:12px; font-weight:800; color:#FF6B00; background:#FFF3E9; border-radius:8px; padding:3px 9px; flex:none; width:74px; text-align:center; }
+  .rank .row .txt { font-size:14px; }
+  .rank .row .txt b { font-size:15px; }
+  .rank .row .txt small { display:block; color:#8A8F99; font-size:12px; }
+
+  .foot { text-align:center; padding:6px 0 10px; }
+  .foot a { display:block; margin:0 12px 10px; padding:13px 16px; background:#fff; border-radius:16px; box-shadow:0 2px 10px rgba(31,35,41,.05); text-decoration:none; color:#1F2329; font-size:14px; }
+  .foot a small { display:block; color:#8A8F99; font-size:11px; margin-top:2px; }
+  .done { background:linear-gradient(90deg,#FF9A40,#FF6B00); color:#fff; text-align:center; border-radius:99px; padding:13px; font-size:15px; font-weight:700; margin:4px 12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="daylabel">DAY 1 · 知识点<small>9月5日 · 考试概况与策略</small></div>
+    <div class="why"><b>为什么第一天学这个：</b>先看清战场——时间怎么流、分在哪一块，之后 98 天每天练什么才有意义。今天 10 分钟，把这张地图刻在脑子里。</div>
+  </header>
+
+  <div class="card">
+    <h2><span class="num">01</span>考试时间与分值</h2>
+    <div class="sub">2026-12-12 · 大学英语六级 · 下午场</div>
+    <div class="examdate"><b>12月12日 周六</b><span>15:00 – 17:25</span></div>
+    <div class="tl">
+      <div class="row"><b>14:40</b>进场（身份证 + 准考证 + 2B铅笔 + 黑色签字笔）</div>
+      <div class="row"><b>15:10</b>写作 · 30 分钟（作文是第一关，考前背的模板直接用上）</div>
+      <div class="row warn"><b>15:40</b>听力 · 30 分钟（⚠️ 边听边涂卡，放音结束立刻收卡）</div>
+      <div class="row"><b>16:15</b>阅读 + 翻译 · 70 分钟（阅读约 40'，翻译留 30'）</div>
+      <div class="row"><b>17:25</b>收卷，出考场</div>
+    </div>
+    <table>
+      <tr><th>板块</th><th>占比</th><th style="width:38%">分值（满分 710）</th></tr>
+      <tr><td>听力</td><td>35%</td><td class="v">248.5</td></tr>
+      <tr><td>阅读</td><td>35%</td><td class="v">248.5</td></tr>
+      <tr><td>写作</td><td>15%</td><td class="v">106.5</td></tr>
+      <tr><td>翻译</td><td>15%</td><td class="v">106.5</td></tr>
+      <tr class="total"><td>总分</td><td></td><td class="v">710（425 为习惯"及格线"）</td></tr>
+    </table>
+    <div class="tip"><b>记住一件事：</b>听力占 248.5 分、写译合计 213 分——你的三个薄弱项加起来占了<b>近 7 成的分</b>，这就是每天打卡练它们的原因。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">02</span>分值收益测算</h2>
+    <div class="sub">每天的任务 = 分数性价比排序后的结果</div>
+    <div class="rank">
+      <div class="row">
+        <div class="medal">收益 No.1</div>
+        <div class="txt"><b>听力 · 每天 30 分钟</b><small>最大单一板块 248.5 分；不练就退步 → 天天练，状态焊死</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">收益 No.2</div>
+        <div class="txt"><b>词汇 · 每天 60 分钟</b><small>阅读 + 听力 + 写译共用的地基，7803 词一轮 98 天 × 艾宾浩斯 5 遍</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">收益 No.3</div>
+        <div class="txt"><b>写译 · 隔日 20–30 分钟</b><small>合计 213 分；零基础从模板起步，"能写满"就是最稳的净赚分</small></div>
+      </div>
+    </div>
+    <table>
+      <tr><th>算一笔账（示例）</th><th>涨幅 ≈</th></tr>
+      <tr><td>听力正确率 50% → 70%</td><td class="v">+50 分</td></tr>
+      <tr><td>写译合计 120 → 160</td><td class="v">+40 分</td></tr>
+      <tr><td>词汇过一轮，阅读提速提准</td><td class="v">+20~30 分</td></tr>
+    </table>
+    <div class="tip"><b>结论：</b>加起来 <b>110+ 分</b>的抬升空间，全部来自你每天的固定打卡——这就是"每天 1 小时"的复利。</div>
+  </div>
+
+  <div class="foot">
+    <a href="https://chatglm.cn/studyBuddy/detail/68f0b8c110eea3e78b0e0e5e?id=6a9a88977904ab06f3e229ae&lang=zh&nodeId=6a9a89e65174696feee905f8&share_by=6a64a163a8724073a8eb51d8">🧠 01 考试时间与分值<small>平台知识点详情 · 答题入口</small></a>
+    <a href="https://chatglm.cn/studyBuddy/detail/68f0b8c110eea3e78b0e0e5e?id=6a9a88977904ab06f3e229ae&lang=zh&nodeId=6a9a89e65174696feee905f9&share_by=6a64a163a8724073a8eb51d8">🧠 02 分值收益测算<small>平台知识点详情 · 答题入口</small></a>
+    <div class="done">看完了？回微信跟我说一声"学完了" ✓</div>
+  </div>
+
+</div>
+</body>
+</html>
