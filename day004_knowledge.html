@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 4 · 写作双卡</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:#F6F6F8; color:#1F2329; line-height:1.7;
+  }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+
+  header { padding:6px 4px 16px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why b { color:#1F2329; }
+
+  .card { background:#fff; border-radius:22px; box-shadow:0 8px 30px rgba(31,35,41,.07), 0 1px 3px rgba(31,35,41,.04); padding:22px 20px; margin-bottom:16px; }
+  .card h2 { font-size:19px; display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+  .card h2 .num { font-size:12px; color:#fff; background:#FF6B00; border-radius:8px; padding:2px 8px; font-weight:700; flex:none; }
+  .card .sub { font-size:12px; color:#8A8F99; margin-bottom:14px; }
+
+  .tl { border-left:2px solid #FFE3CC; margin:4px 0 14px 6px; padding-left:16px; }
+  .tl .row { position:relative; padding:7px 0; font-size:14px; }
+  .tl .row::before { content:''; position:absolute; left:-21px; top:13px; width:8px; height:8px; border-radius:99px; background:#FF6B00; }
+  .tl .row b { color:#FF6B00; font-size:13px; font-variant-numeric:tabular-nums; margin-right:8px; }
+  .tl .en { display:block; background:#FFF7EF; border-radius:10px; padding:8px 12px; margin:6px 0 10px; font-size:13px; color:#7A4A21; }
+  .tl .en i { color:#C2410C; font-style:normal; font-weight:700; }
+
+  .rank .row { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid #F2F2F5; }
+  .rank .row:last-child { border-bottom:none; }
+  .rank .medal { font-size:11px; font-weight:800; color:#FF6B00; background:#FFF3E9; border-radius:8px; padding:3px 10px; flex:none; min-width:56px; text-align:center; white-space:nowrap; }
+  .rank .row .txt { font-size:14px; }
+  .rank .row .txt b { font-size:15px; }
+  .rank .row .txt small { display:block; color:#8A8F99; font-size:12px; }
+  .rank .sub2 { font-size:12.5px; color:#5A6070; background:#FFF7EF; border-radius:10px; padding:8px 12px; margin:8px 0 4px; }
+
+  .tip { background:#FFF7EF; border-radius:14px; padding:10px 14px; font-size:13.5px; color:#7A4A21; margin-top:10px; }
+  .tip b { color:#C2410C; }
+
+  .fixcard { background:#fff; border:1.5px solid #FFDDC0; border-radius:18px; padding:14px 16px 12px; margin-bottom:16px; box-shadow:0 4px 16px rgba(255,107,0,.08); }
+  .fixcard .fx-t { font-size:15px; font-weight:800; color:#C2410C; }
+  .fixcard .fx-s { font-size:12px; color:#8A8F99; margin:2px 0 8px; }
+  .fixcard .step { display:flex; gap:10px; padding:8px 0; border-bottom:1px dashed #FFE3CC; font-size:13.5px; color:#3D414B; }
+  .fixcard .step:last-of-type { border-bottom:none; }
+  .fixcard .step b { color:#C2410C; flex:none; }
+
+  .foot { text-align:center; padding:6px 0 10px; }
+  .foot a { display:block; margin:0 12px 10px; padding:13px 16px; background:#fff; border-radius:16px; box-shadow:0 2px 10px rgba(31,35,41,.05); text-decoration:none; color:#1F2329; font-size:14px; }
+  .foot a small { display:block; color:#8A8F99; font-size:11px; margin-top:2px; }
+  .done { background:linear-gradient(90deg,#FF9A40,#FF6B00); color:#fff; text-align:center; border-radius:99px; padding:13px; font-size:15px; font-weight:700; margin:4px 12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="daylabel">DAY 4 · 写作双卡<small>9月8日 · 模板体系与句型 + 素材积累与训练</small></div>
+    <div class="why"><b>为什么今天学这个：</b>作文占 15%，你前 10 次基本是裸写上场的。今天治"不会写"这个病根——不追求文笔，追求<b>有骨架、有弹药</b>：任何题目 30 分钟稳稳凑出一篇结构完整的像样文章。从 DAY 6 起奇数日就要成文了，今天先把枪造好。</div>
+  </header>
+
+  <div class="card">
+    <h2><span class="num">01</span>模板体系 · 三段式骨架</h2>
+    <div class="sub">背骨架，不背整篇 · 任何议论文都往里填</div>
+    <div class="tl">
+      <div class="row"><b>开头段</b>2–3 句：引话题 + 亮观点
+        <span class="en">Nowadays, with the rapid development of <i>科技/社会/经济</i>, <i>话题词</i> has become a heated topic among the public. As far as I am concerned, <i>你的观点</i>.</span>
+      </div>
+      <div class="row"><b>主体段</b>2–3 段：每段 = 论点句 + 解释 + 例子
+        <span class="en">First and foremost, <i>论点1</i>. What's more, <i>论点2</i>. Last but not least, <i>论点3</i>.</span>
+      </div>
+      <div class="row"><b>结尾段</b>2 句：重申观点 + 建议展望
+        <span class="en">In conclusion, <i>重申观点</i>. It is high time that we paid more attention to <i>话题</i>. Only in this way can we <i>美好结果</i>.</span>
+      </div>
+    </div>
+    <div class="tip"><b>骨架的意义：</b>考场上 106.5 分的作文，判卷人 30 秒扫一篇——结构清楚 = 印象分到手。你缺的从来不是观点，是往哪儿放。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">02</span>保命句型 · 高级替换</h2>
+    <div class="sub">把"小学生词汇"换成"判卷人想看到的词汇"</div>
+    <div class="rank">
+      <div class="row">
+        <div class="medal">think</div>
+        <div class="txt"><b>maintain / hold the view that</b><small>I think → I hold the view that…</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">important</div>
+        <div class="txt"><b>crucial / vital / essential</b><small>批卷最常见的高级替换，必会</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">many</div>
+        <div class="txt"><b>an increasing number of</b><small>many people → an increasing number of people</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">good / bad</div>
+        <div class="txt"><b>beneficial / detrimental</b><small>一对正反高级词，作文里各用一次就够亮</small></div>
+      </div>
+    </div>
+    <div class="tip"><b>用法提醒：</b>替换词每篇用 2–3 个就够，堆多了反而假。目标是"看起来写过很多篇"，不是炫技。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">03</span>素材库 · 万能弹药</h2>
+    <div class="sub">背 2 个例子，打 N 个话题（一材多用）</div>
+    <div class="rank">
+      <div class="row">
+        <div class="medal">人物</div>
+        <div class="txt"><b>袁隆平 · 一生一事</b><small>能打：坚持 / 创新 / 奉献 / 梦想 / 职业选择——"Yuan Longping, known as the Father of Hybrid Rice, devoted his whole life to rice research."</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">事件</div>
+        <div class="txt"><b>疫情网课 · 科技改变教育</b><small>能打：科技双刃剑 / 教育公平 / 终身学习 / 应变能力——事实一句话带过，重点写它说明了什么</small></div>
+      </div>
+      <div class="row">
+        <div class="medal">数据</div>
+        <div class="txt"><b>"According to a recent survey, …"</b><small>数据句是万能填充——数字合理即可，阅卷人不查证，但别离谱</small></div>
+      </div>
+    </div>
+    <div class="tip"><b>素材心法：</b>一个例子换角度 = 另一个论据。别背 10 个例子，把 2 个用"通"。</div>
+  </div>
+
+  <div class="fixcard">
+    <div class="fx-t">✍️ 今日实战（今晚 21:00 复盘前交）</div>
+    <div class="fx-s">题目自选：The Importance of Lifelong Learning（终身学习）</div>
+    <div class="step"><b>①</b>把三段式骨架的开头/主体/结尾句型各抄写一遍（手抄，肌肉记忆）</div>
+    <div class="step"><b>②</b>用今天的句型仿写 3 句：开头 1 句 + 主体论点句 1 句 + 结尾 1 句</div>
+    <div class="step"><b>③</b>写完发到微信，我逐句给你改——明天起你的句子就是弹药库</div>
+  </div>
+
+  <div class="foot">
+    <a href="https://chatglm.cn/studyBuddy/detail/68f0b8c110eea3e78b0e0e5e?id=6a9a88977904ab06f3e229ae&lang=zh&nodeId=6a9a89e65174696feee905fe&share_by=6a64a163a8724073a8eb51d8">🧠 01 模板体系与句型<small>平台知识点详情</small></a>
+    <a href="https://chatglm.cn/studyBuddy/detail/68f0b8c110eea3e78b0e0e5e?id=6a9a88977904ab06f3e229ae&lang=zh&nodeId=6a9a89e65174696feee905ff&share_by=6a64a163a8724073a8eb51d8">🧠 02 素材积累与训练<small>平台知识点详情</small></a>
+    <div class="done">写完发微信，我批改 ✓</div>
+  </div>
+
+</div>
+</body>
+</html>
