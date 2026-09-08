@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 7 · 词单卡片</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { height:100%; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:#F6F6F8; color:#1F2329;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .wrap { max-width:480px; width:100%; margin:0 auto; height:100%; display:flex; flex-direction:column; position:relative; background:#F6F6F8; }
+
+  header { padding:14px 18px 10px; flex:none; }
+  .toprow { display:flex; align-items:center; justify-content:space-between; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .progress-num { font-size:13px; color:#8A8F99; font-variant-numeric:tabular-nums; }
+  .progress-num b { color:#1F2329; font-weight:700; }
+  .bar { height:4px; background:#E8E8EC; border-radius:99px; margin-top:10px; overflow:hidden; }
+  .bar i { display:block; height:100%; width:0; background:linear-gradient(90deg,#FF9A40,#FF6B00); border-radius:99px; transition:width .25s ease; }
+
+  .stage { flex:1; position:relative; overflow:hidden; margin-top:6px; }
+  .card {
+    position:absolute; inset:10px 18px 8px; background:#fff; border-radius:22px;
+    box-shadow:0 8px 30px rgba(31,35,41,.07), 0 1px 3px rgba(31,35,41,.04);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:30px 26px 26px; text-align:center;
+    transition:transform .18s ease, opacity .18s ease; will-change:transform;
+  }
+  .card.enter-left { transform:translateX(60px); opacity:0; transition:none; }
+  .card.enter-right { transform:translateX(-60px); opacity:0; transition:none; }
+
+  .page-tag { position:absolute; top:16px; right:18px; font-size:11px; color:#C3C7CF; font-weight:500; }
+  .seq-tag { position:absolute; top:16px; left:18px; font-size:11px; color:#C3C7CF; font-weight:600; font-variant-numeric:tabular-nums; }
+
+  .word { font-size:clamp(30px,9vw,44px); font-weight:800; color:#FF6B00; letter-spacing:.2px; line-height:1.15; word-break:break-word; }
+
+  .speak { margin-top:10px; display:inline-flex; align-items:center; gap:7px; background:#FFF3E9; border-radius:99px; padding:6px 14px; border:none; cursor:pointer; }
+  .speak:active { transform:scale(.96); }
+  .speak .ph { font-size:14px; color:#8A8F99; }
+  .speak .ph:empty { display:none; }
+  .speak svg { width:15px; height:15px; flex:none; }
+
+  .defs { margin-top:26px; width:100%; max-width:340px; }
+  .def { font-size:18px; line-height:1.65; color:#1F2329; padding:9px 0; border-bottom:1px solid #F2F2F5; }
+  .def:first-child { border-top:1px solid #F2F2F5; }
+  .def .pos { display:inline-block; font-size:12px; color:#FF6B00; background:#FFF3E9; border-radius:6px; padding:1px 7px; margin-right:8px; vertical-align:2px; font-weight:600; }
+  .def .pos:empty { display:none; }
+
+  .marked { position:absolute; bottom:16px; left:18px; font-size:11px; font-weight:600; display:none; }
+  .card.is-star .marked.star { display:block; color:#FF6B00; }
+  .card.is-known .marked.known { display:block; color:#10B981; }
+
+  .actions { flex:none; padding:6px 18px 4px; display:flex; gap:12px; }
+  .btn { flex:1; height:52px; border-radius:16px; font-size:16px; font-weight:700; cursor:pointer; border:none; display:flex; align-items:center; justify-content:center; gap:6px; }
+  .btn:active { transform:scale(.97); }
+  .btn-known { background:#F0FDF6; color:#10B981; border:1.5px solid #BBF0D5; }
+  .btn-star { background:#FFF6EF; color:#FF6B00; border:1.5px solid #FFDDC0; }
+
+  nav { flex:none; padding:10px 18px calc(16px + env(safe-area-inset-bottom)); display:flex; align-items:center; gap:10px; }
+  .nav-arrow { width:52px; height:48px; flex:none; border-radius:99px; background:#fff; border:1px solid #E8E8EC; box-shadow:0 2px 8px rgba(31,35,41,.05); font-size:19px; color:#8A8F99; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .nav-arrow:active { transform:scale(.95); }
+  .nav-next { flex:1; height:48px; border-radius:99px; background:#1F2329; color:#fff; border:none; font-size:15px; cursor:pointer; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px; }
+  .nav-next:active { opacity:.9; }
+  .nav-next .lab { color:#9DA3AE; font-size:11px; font-weight:500; flex:none; }
+  .nav-next .nword { font-weight:700; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+  .summary { display:none; flex-direction:column; align-items:center; justify-content:center; padding:30px; text-align:center; }
+  .summary h2 { font-size:24px; margin-bottom:8px; }
+  .summary .sub { color:#8A8F99; font-size:14px; margin-bottom:26px; }
+  .stats { display:flex; gap:14px; margin-bottom:30px; width:100%; max-width:320px; }
+  .stat { flex:1; background:#fff; border-radius:18px; padding:16px 8px; box-shadow:0 4px 16px rgba(31,35,41,.05); }
+  .stat b { display:block; font-size:26px; }
+  .stat span { font-size:12px; color:#8A8F99; }
+  .stat.ok b { color:#10B981; } .stat.star b { color:#FF6B00; }
+  .starlist { width:100%; max-width:340px; max-height:34vh; overflow-y:auto; background:#fff; border-radius:18px; padding:8px 0; box-shadow:0 4px 16px rgba(31,35,41,.05); display:none; }
+  .starlist .st { padding:10px 18px; font-size:14px; display:flex; justify-content:space-between; border-bottom:1px solid #F5F5F7; }
+  .starlist .st:last-child { border-bottom:none; }
+  .starlist .st em { font-style:normal; color:#8A8F99; font-size:12px; max-width:55%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .again { margin-top:22px; height:50px; border-radius:99px; border:none; background:linear-gradient(90deg,#FF9A40,#FF6B00); color:#fff; font-size:16px; font-weight:700; padding:0 34px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="toprow">
+      <div class="daylabel">DAY 7<small>9月11日 · 第25-28页</small></div>
+      <div class="progress-num"><b id="cur">1</b> / <span id="total">80</span></div>
+    </div>
+    <div class="bar"><i id="barfill"></i></div>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="card" id="card">
+      <div class="seq-tag" id="seq"></div>
+      <div class="page-tag" id="pagetag"></div>
+      <div class="word" id="word"></div>
+      <button class="speak" id="speak" aria-label="发音">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        <span class="ph" id="phone"></span>
+      </button>
+      <div class="defs" id="defs"></div>
+      <div class="marked known">✓ 已划过</div>
+      <div class="marked star">★ 生词</div>
+    </div>
+
+    <div class="card summary" id="summary">
+      <h2 id="sumTitle">今日词单完成 🎉</h2>
+      <div class="sub" id="sumSub"></div>
+      <div class="stats">
+        <div class="stat ok"><b id="nKnown">0</b><span>认识划过</span></div>
+        <div class="stat star"><b id="nStar">0</b><span>生词待精背</span></div>
+        <div class="stat"><b id="nLeft">0</b><span>还没刷到</span></div>
+      </div>
+      <div class="starlist" id="starlist"></div>
+      <button class="again" id="btnAgain">只刷生词</button>
+    </div>
+  </div>
+
+  <div class="actions" id="actions">
+    <button class="btn btn-known" id="btnKnown">✓ 认识，划过</button>
+    <button class="btn btn-star" id="btnStar">★ 生词，记下</button>
+  </div>
+
+  <nav>
+    <button class="nav-arrow" id="prev">‹</button>
+    <button class="nav-next" id="next"><span class="lab">下一个</span><span class="nword" id="nextword"></span></button>
+    <button class="nav-arrow" id="skip">›</button>
+  </nav>
+</div>
+
+<script>
+const WORDS = [{"word": "agent", "phone": "'edʒənt", "pos": "n.", "defs": ["代理⼈，经纪⼈", "特⼯", "动因", "剂"], "page": 25}, {"word": "agency", "phone": "'edʒənsi", "pos": "n.", "defs": ["代理机构", "(政府的) 专⻔机构"], "page": 25}, {"word": "substitute", "phone": "'sʌbstɪtut", "pos": "n.", "defs": ["代替者，代替物", "替补运动员 vi. vt. 替换，取代"], "page": 25}, {"word": "substitution", "phone": "", "pos": "n.", "defs": ["代替，替换，替补"], "page": 25}, {"word": "constitute", "phone": "'kɑnstətut", "pos": "", "defs": ["vlink. 构成，组成", "相当于，可算作 vt. 设⽴，成⽴"], "page": 25}, {"word": "constitution", "phone": "", "pos": "n.", "defs": ["宪法，章程", "体质", "构成，成分"], "page": 25}, {"word": "constitutional", "phone": "", "pos": "adj.", "defs": ["宪法的，章程的", "宪法允许的 n. 健⾝散步"], "page": 25}, {"word": "constituent", "phone": "", "pos": "n.", "defs": ["成分", "选⺠ adj. 构成的，组成的"], "page": 25}, {"word": "constituency", "phone": "", "pos": "n.", "defs": ["选区", "选区选⺠", "⽀持者"], "page": 25}, {"word": "federal", "phone": "", "pos": "adj.", "defs": ["联邦制的", "联邦政府的"], "page": 25}, {"word": "federation", "phone": "", "pos": "n.", "defs": ["联盟，联合会", "联邦制国家"], "page": 25}, {"word": "commonwealth", "phone": "", "pos": "n.", "defs": ["英联邦", "⾃治政体", "联合体"], "page": 25}, {"word": "minister", "phone": "", "pos": "n.", "defs": ["部⻓，⼤⾂", "牧师", "公使 vi. 服侍，帮助"], "page": 25}, {"word": "ministerial", "phone": "", "pos": "adj.", "defs": ["部⻓的，⼤⾂的"], "page": 25}, {"word": "administer", "phone": "", "pos": "vt.", "defs": ["管理 (公司等)", "给予 (药等) vt. vi. 执⾏，实施"], "page": 25}, {"word": "administrative", "phone": "əd'mɪnɪstretɪv", "pos": "adj.", "defs": ["管理的，⾏政的"], "page": 25}, {"word": "administration", "phone": "əd,mɪnɪ'streʃən", "pos": "n.", "defs": ["管理，⾏政", "政府，管理部⻔"], "page": 25}, {"word": "harness", "phone": "'hɑrnɪs", "pos": "vt.", "defs": ["控制，利⽤", "给 (⻢等) 上挽具 n. ⻢具，挽具", "保护带，背带"], "page": 25}, {"word": "ministry", "phone": "", "pos": "n.", "defs": ["(政府的) 部", "(全体) 牧师"], "page": 25}, {"word": "secretary", "phone": "", "pos": "n.", "defs": ["秘书", "书记员", "部⻓，⼤⾂"], "page": 25}, {"word": "secretarial", "phone": "", "pos": "adj.", "defs": ["秘书⼯作的"], "page": 26}, {"word": "mayor", "phone": "", "pos": "n.", "defs": ["市⻓，镇⻓"], "page": 26}, {"word": "official", "phone": "", "pos": "n.", "defs": ["官员，⾼级职员 adj. 公务的", "官⽅的", "官⽅公布的"], "page": 26}, {"word": "casual", "phone": "'kæʒʊəl", "pos": "adj.", "defs": ["随意的", "⾮正式的", "临时的 n. 便装，便鞋", "临时⼯"], "page": 26}, {"word": "casualty", "phone": "'kæʒuəlti", "pos": "n.", "defs": ["伤亡⼈员", "受害者", "急诊室"], "page": 26}, {"word": "knight", "phone": "", "pos": "n.", "defs": ["骑⼠", "爵⼠", "(国际象棋) ⻢ vt. 封…为爵⼠"], "page": 26}, {"word": "delegate", "phone": "", "pos": "n.", "defs": ["代表，(尤指) 会议代表 vi. vt. 授 (权)，把 (职责等) 委托给某⼈ vt. 选派 (某⼈做某项⼯作)"], "page": 26}, {"word": "delegation", "phone": "", "pos": "n.", "defs": ["代表团", "授权，委派"], "page": 26}, {"word": "threshold", "phone": "'θrɛʃhold", "pos": "n.", "defs": ["⻔槛", "起始点，临界点"], "page": 26}, {"word": "propagate", "phone": "", "pos": "vt.", "defs": ["宣传，传播 vt. vi. (动植物) 繁殖，繁衍"], "page": 26}, {"word": "propagation", "phone": "", "pos": "n.", "defs": ["繁殖，增殖", "宣传"], "page": 26}, {"word": "propaganda", "phone": "", "pos": "n.", "defs": ["宣传，⿎吹"], "page": 26}, {"word": "publicize", "phone": "'pʌblɪsaɪz", "pos": "vt.", "defs": ["宣传，推⼴"], "page": 26}, {"word": "public", "phone": "", "pos": "adj.", "defs": ["⼤众的", "公共的", "政府的", "公开的 n. 公众，⺠众"], "page": 26}, {"word": "publicly", "phone": "", "pos": "adv.", "defs": ["公开地", "由政府进⾏地"], "page": 26}, {"word": "publicity", "phone": "pʌb'lɪsəti", "pos": "n.", "defs": ["(媒体的) 关注，报道", "宣传"], "page": 26}, {"word": "vote", "phone": "vot; voʊt", "pos": "vt. vi.", "defs": ["投票，表决，选举 vt. 选出，推举", "表明，公认", "提议 n. 选票", "投票", "投票权"], "page": 26}, {"word": "voter", "phone": "", "pos": "n.", "defs": ["选⺠，投票⼈，选举⼈"], "page": 26}, {"word": "veto", "phone": "", "pos": "vt.", "defs": ["(正式) 否决", "不同意 n. 否决权"], "page": 26}, {"word": "regime", "phone": "re'ʒim", "pos": "n.", "defs": ["政权，政体", "组织⽅法", "养⽣法"], "page": 26}, {"word": "reign", "phone": "", "pos": "n.", "defs": ["君主统治时期", "任期，当政期 vi. 统治，当政", "成为最佳", "盛⾏"], "page": 27}, {"word": "loyal", "phone": "", "pos": "adj.", "defs": ["忠诚的，忠⼼的"], "page": 27}, {"word": "loyalty", "phone": "'lɔɪəlti", "pos": "n.", "defs": ["忠诚，忠⼼", "忠于…的强烈情感"], "page": 27}, {"word": "royal", "phone": "", "pos": "adj.", "defs": ["皇家的，王室的", "盛⼤的 n. 王室成员，皇族"], "page": 27}, {"word": "royalty", "phone": "", "pos": "n.", "defs": ["王室", "版税", "矿区⼟地使⽤费"], "page": 27}, {"word": "salute", "phone": "", "pos": "vt. vi.", "defs": ["敬礼 vt. 向…致敬 n. 致敬", "鸣礼炮"], "page": 27}, {"word": "salutation", "phone": "", "pos": "n.", "defs": ["问候", "(信函等开头的) 称呼语"], "page": 27}, {"word": "sovereign", "phone": "", "pos": "n.", "defs": ["君主，元⾸", "⾦镑 adj. (国家) 有主权的", "⾄⾼⽆上的"], "page": 27}, {"word": "sovereignty", "phone": "", "pos": "n.", "defs": ["主权，最⾼统治权"], "page": 27}, {"word": "emperor", "phone": "", "pos": "n.", "defs": ["皇帝，君主"], "page": 27}, {"word": "empress", "phone": "", "pos": "n.", "defs": ["⼥皇"], "page": 27}, {"word": "imperial", "phone": "ɪm'pɪrɪəl", "pos": "adj.", "defs": ["帝国的，皇帝的", "英制的"], "page": 27}, {"word": "imperialism", "phone": "", "pos": "n.", "defs": ["帝国主义", "势⼒扩张"], "page": 27}, {"word": "imperialist", "phone": "", "pos": "n.", "defs": ["帝国主义者"], "page": 27}, {"word": "civil", "phone": "", "pos": "adj.", "defs": ["公⺠的，国内的", "⺠⽤的 adj. ⺠法的", "⽂明的"], "page": 27}, {"word": "civilize", "phone": "", "pos": "vt.", "defs": ["教化，使开化"], "page": 27}, {"word": "civilization", "phone": ",sɪvələ'zeʃən", "pos": "n.", "defs": ["⽂明", "⽂明国家", "⽂明社会"], "page": 27}, {"word": "civic", "phone": "", "pos": "adj.", "defs": ["市政的，城市的", "市⺠的"], "page": 27}, {"word": "civilian", "phone": "sə'vɪlɪən", "pos": "n.", "defs": ["平⺠，百姓 adj. ⺠⽤的，平⺠的，⾮军⽤的"], "page": 27}, {"word": "donate", "phone": "'donet", "pos": "vt.", "defs": ["捐赠", "献 (⾎，器官等)"], "page": 27}, {"word": "donation", "phone": "do'neʃən", "pos": "n.", "defs": ["捐赠物，捐赠"], "page": 28}, {"word": "donor", "phone": "'donɚ", "pos": "n.", "defs": ["捐赠者 (机构)", "献⾎者"], "page": 28}, {"word": "endow", "phone": "", "pos": "vt.", "defs": ["向 (院校、医院等) 捐款", "赋予"], "page": 28}, {"word": "endowment", "phone": "", "pos": "n.", "defs": ["捐款，捐赠", "天赋"], "page": 28}, {"word": "charity", "phone": "'tʃærəti", "pos": "n.", "defs": ["慈善机构", "慈善", "救济", "仁爱"], "page": 28}, {"word": "charitable", "phone": "", "pos": "adj.", "defs": ["慈善的", "仁慈的，宽容的"], "page": 28}, {"word": "contribute", "phone": "kən'trɪbjut", "pos": "vt. vi.", "defs": ["捐赠，捐助", "做贡献", "撰稿 vi. 促使，是导致…的原因之⼀"], "page": 28}, {"word": "contribution", "phone": ",kɑntrɪ'bjuʃən", "pos": "n.", "defs": ["贡献", "捐献", "定期缴款", "稿件"], "page": 28}, {"word": "contributor", "phone": "", "pos": "n.", "defs": ["捐款⼈，贡献者", "撰稿⼈ n. 促成因素"], "page": 28}, {"word": "tribute", "phone": "", "pos": "n.", "defs": ["致敬", "是…的充分体现", "贡品"], "page": 28}, {"word": "attribute", "phone": "ə'trɪbjut", "pos": "vt.", "defs": ["把…归因于", "认为是…所作 n. 特性，属性"], "page": 28}, {"word": "attributable", "phone": "", "pos": "adj.", "defs": ["可归因于…的"], "page": 28}, {"word": "distribute", "phone": "dɪ'strɪbjut", "pos": "vt.", "defs": ["分发，分配", "分销", "使分布"], "page": 28}, {"word": "distributive", "phone": "", "pos": "adj.", "defs": ["分发的，分配的，分销的"], "page": 28}, {"word": "distribution", "phone": "'dɪstrə'bjʊʃən", "pos": "n.", "defs": ["分布", "分发", "分销"], "page": 28}, {"word": "transmit", "phone": "trænzˈmɪt", "pos": "vt. vi.", "defs": ["传送，发送 (信号、信息等) vt. 传播 (疾病)", "传达 (思想)", "传导"], "page": 28}, {"word": "transmitter", "phone": "", "pos": "n.", "defs": ["发射机，发射台", "传播者"], "page": 28}, {"word": "transmission", "phone": "", "pos": "n.", "defs": ["(数据的) 传输", "传播", "节⽬播送"], "page": 28}, {"word": "freight", "phone": "", "pos": "n.", "defs": ["货物，货运", "运费 vt. (⽤⻜机等) 运送，托运"], "page": 28}, {"word": "admit", "phone": "əd'mɪt", "pos": "vi. vt.", "defs": ["承认 vt. 准许…进⼊", "准许…加⼊", "收治"], "page": 28}];
+const STORE_KEY = 'wc_day7';
+let state = load() || { known: [], star: [], last: 0, starOnly: false };
+let i = Math.min(state.last, WORDS.length - 1);
+
+function load(){ try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch(e){ return null; } }
+function save(){ state.last = i; try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){} }
+
+const $ = id => document.getElementById(id);
+const card = $('card'), summary = $('summary');
+
+function isStar(idx){ return state.star[idx]; }
+function isKnown(idx){ return state.known[idx]; }
+
+function visibleIndices(){
+  if (state.starOnly) { const v = WORDS.map((_,k)=>k).filter(k=>isStar(k)); return v.length ? v : WORDS.map((_,k)=>k); }
+  return WORDS.map((_,k)=>k);
+}
+
+function render(dir){
+  const vis = visibleIndices();
+  const pos = vis.indexOf(i); if (pos === -1) { i = vis[0] || 0; }
+  const w = WORDS[i];
+  summary.style.display = 'none';
+  card.style.display = 'flex';
+  if (dir === 1) { card.classList.add('enter-left'); } else if (dir === -1) { card.classList.add('enter-right'); }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ card.classList.remove('enter-left','enter-right'); }));
+
+  $('seq').textContent = '#' + (i+1);
+  $('pagetag').textContent = '第' + w.page + '页';
+  $('word').textContent = w.word;
+  $('phone').textContent = w.phone ? '/' + w.phone + '/' : '';
+  const defs = $('defs'); defs.innerHTML = '';
+  const defArr = w.defs.length ? w.defs : ['—'];
+  defArr.forEach(t => {
+    const div = document.createElement('div'); div.className = 'def';
+    const pos = document.createElement('span'); pos.className = 'pos'; pos.textContent = w.pos;
+    div.appendChild(pos); div.appendChild(document.createTextNode(t));
+    defs.appendChild(div);
+  });
+  card.classList.toggle('is-star', !!isStar(i));
+  card.classList.toggle('is-known', !!isKnown(i));
+
+  const nextIdx = vis[(pos+1) % vis.length];
+  $('nextword').textContent = WORDS[nextIdx].word;
+  $('cur').textContent = pos + 1;
+  $('total').textContent = vis.length;
+  $('barfill').style.width = ((pos+1)/vis.length*100) + '%';
+  if (state.starOnly) { $('btnAgain').textContent = '返回全部'; } else { $('btnAgain').textContent = '只刷生词'; }
+  save();
+  speak(false);
+}
+
+function speak(loud){
+  if (!('speechSynthesis' in window)) return;
+  if (!loud && document.hidden) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(WORDS[i].word);
+    u.lang = 'en-US'; u.rate = .92;
+    speechSynthesis.speak(u);
+  } catch(e){}
+}
+
+function go(step){
+  const vis = visibleIndices();
+  let pos = vis.indexOf(i);
+  pos = (pos + step + vis.length) % vis.length;
+  i = vis[pos];
+  render(step > 0 ? 1 : -1);
+}
+
+function mark(kind, val){
+  const vis = visibleIndices();
+  if (kind === 'known') { state.known[i] = val; if (val) state.star[i] = false; }
+  else { state.star[i] = val; if (val) state.known[i] = false; }
+  save();
+  const pos = vis.indexOf(i);
+  if (pos === vis.length - 1) { render(0); setTimeout(finishMaybe, 350); }
+  else go(1);
+}
+
+function finishMaybe(){
+  const vis = visibleIndices();
+  const pos = vis.indexOf(i);
+  if (pos === vis.length - 1) showSummary();
+}
+
+function showSummary(){
+  card.style.display = 'none';
+  summary.style.display = 'flex';
+  $('actions').style.visibility = 'hidden';
+  const nK = WORDS.filter((_,k)=>isKnown(k)).length;
+  const nS = WORDS.filter((_,k)=>isStar(k)).length;
+  $('nKnown').textContent = nK; $('nStar').textContent = nS;
+  $('nLeft').textContent = WORDS.length - nK - nS;
+  $('sumSub').textContent = state.starOnly ? '生词二刷完毕，晚 21:00 复盘见' : WORDS.length + ' 词快过完成，晚上复盘时告诉我生词背了没';
+  const list = $('starlist'); list.innerHTML = '';
+  if (nS > 0) {
+    list.style.display = 'block';
+    WORDS.forEach((w,k)=>{ if (isStar(k)) {
+      const row = document.createElement('div'); row.className = 'st';
+      row.innerHTML = '<b style="color:#FF6B00">' + w.word + '</b><em>' + (w.defs[0]||'') + '</em>';
+      row.onclick = () => { i = k; state.starOnly = false; $('actions').style.visibility = 'visible'; render(0); };
+      list.appendChild(row);
+    }});
+  } else { list.style.display = 'none'; }
+}
+
+$('btnKnown').onclick = () => mark('known', !isKnown(i));
+$('btnStar').onclick = () => mark('star', !isStar(i));
+$('prev').onclick = () => go(-1);
+$('next').onclick = () => { const vis = visibleIndices(); const pos = vis.indexOf(i); if (pos === vis.length-1) showSummary(); else go(1); };
+$('skip').onclick = () => go(1);
+$('speak').onclick = () => speak(true);
+$('btnAgain').onclick = () => {
+  state.starOnly = !state.starOnly;
+  $('actions').style.visibility = 'visible';
+  const vis = visibleIndices();
+  i = vis[0];
+  render(0);
+};
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+
+let sx = 0, dx = 0, swiping = false;
+const stage = $('stage');
+stage.addEventListener('touchstart', e => { if (summary.style.display === 'flex') return; sx = e.touches[0].clientX; dx = 0; swiping = true; card.style.transition = 'none'; }, {passive:true});
+stage.addEventListener('touchmove', e => { if (!swiping) return; dx = e.touches[0].clientX - sx; card.style.transform = 'translateX(' + dx + 'px)'; card.style.opacity = String(1 - Math.min(Math.abs(dx)/300, .5)); }, {passive:true});
+stage.addEventListener('touchend', () => {
+  if (!swiping) return; swiping = false;
+  card.style.transition = ''; card.style.transform = ''; card.style.opacity = '';
+  if (dx < -55) go(1); else if (dx > 55) go(-1);
+});
+
+render(0);
+</script>
+</body>
+</html>
