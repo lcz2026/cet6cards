@@ -11,7 +11,7 @@
   header { padding:6px 4px 14px; }
   .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
   .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
-  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
   .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
   .c-t { font-size:16px; font-weight:700; }
   .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
@@ -22,21 +22,34 @@
   .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
   .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
   .hint b { color:#FF6B00; margin-right:4px; }
-  .skeleton { margin-top:10px; }
-  .sk { display:flex; gap:10px; margin-top:6px; }
-  .sk .n { flex:0 0 22px; height:22px; border-radius:50%; background:#FF6B00; color:#fff; font-size:12px; font-weight:700; text-align:center; line-height:22px; }
-  .sk .t { font-size:13px; color:#1F2329; }
-  .sk .t small { color:#8A8F99; }
   .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
   .foot { margin-top:16px; }
-  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div class="daylabel">DAY 13 · 写作日<small>9月17日 · 周四</small></div>
-  <div class="why"><b>今日打法：</b>30 分钟成一篇——用 DAY 4 的三段式骨架起稿，凑不出就套句型。先完成，再完美。</div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
 </header>
 
 <div class="card">
@@ -46,28 +59,39 @@
     <div class="en">Directions: Write an essay entitled "Should College Students Take Part-Time Jobs?"</div>
     <div class="zh">大学生该不该做兼职 · 160-200 词</div>
   </div>
-  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 动笔写全篇</span></div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
 </div>
 
 <div class="card">
   <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
   <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
   <div class="hint"><b>1</b>该：积累社会经验、减轻家庭负担</div><div class="hint"><b>2</b>不该：占用学习时间、易被低价值工作消耗</div><div class="hint"><b>3</b>结论：选对兼职（与专业相关）才值得</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
 </div>
 
 <div class="card">
-  <div class="c-t">🦴 骨架回看</div>
-  <div class="c-s">DAY 4 模板直接套</div>
-  <div class="skeleton">
-    <div class="sk"><div class="n">1</div><div class="t"><b>开头</b>：引题 + 亮观点<br><small>Nowadays, … has become a heated topic. As far as I am concerned, …</small></div></div>
-    <div class="sk"><div class="n">2</div><div class="t"><b>主体</b>：两个论点 + 例子<br><small>First and foremost, … What's more, … Take … as an example.</small></div></div>
-    <div class="sk"><div class="n">3</div><div class="t"><b>结尾</b>：重申 + 展望<br><small>In conclusion, … Only in this way can we …</small></div></div>
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头 · 引题亮观点</div><div class="sam-en">Nowadays, whether college students should take part-time jobs has become a heated topic. As far as I am concerned, taking a suitable part-time job does students more good than harm.</div><div class="sam-zh">如今，大学生该不该做兼职已成为热议话题。在我看来，做一份合适的兼职对学生利大于弊。</div></div><div class="seg"><div class="s-label">② 主体段 · 两论点+例子</div><div class="sam-en">First and foremost, a part-time job offers students valuable social experience. For example, a student who works as a shop assistant learns how to communicate with different people. What&#x27;s more, earning money by themselves helps students understand the value of labor, so they will spend money more wisely. Besides, part-time jobs can also help students discover their real interests and plan their careers earlier.</div><div class="sam-zh">首先，兼职能为学生提供宝贵的社会经验。例如，做过店员的学生能学会如何与不同的人沟通。此外，自己挣钱能让学生体会劳动的价值，从而更明智地消费。而且，兼职还能帮助学生发现自己的真正兴趣，更早地规划职业。</div></div><div class="seg"><div class="s-label">③ 结尾 · 重申+展望</div><div class="sam-en">In conclusion, as long as students can balance work and study, a part-time job is well worth a try. Only in this way can they prepare themselves for the future.</div><div class="sam-zh">总之，只要学生能平衡好工作与学习，兼职就非常值得一试。只有这样，他们才能为未来做好准备。</div></div>
   </div>
-  <div class="ammo">🔋 弹药提醒：袁隆平（坚持/奉献/创新）· 疫情网课（科技/教育）· 数据句 "According to a recent survey, …" · 高级替换 think→maintain / important→crucial / many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>part-time job<em>兼职</em></span><span>social experience<em>社会经验</em></span><span>communicate<em>v. 沟通</em></span><span>earn money<em>挣钱</em></span><span>career<em>n. 职业</em></span><span>financial burden<em>经济负担</em></span><span>academic performance<em>学业表现</em></span><span>independence<em>n. 独立</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>take a part-time job</b><span class="zh">做一份兼职</span></div><div class="kw-item"><b>as far as I am concerned</b><span class="zh">在我看来</span></div><div class="kw-item"><b>do sb. more good than harm</b><span class="zh">利大于弊</span></div><div class="kw-item"><b>valuable social experience</b><span class="zh">宝贵的社会经验</span></div><div class="kw-item"><b>the value of labor</b><span class="zh">劳动的价值</span></div><div class="kw-item"><b>spend money more wisely</b><span class="zh">更明智地花钱</span></div><div class="kw-item"><b>balance work and study</b><span class="zh">平衡工作与学习</span></div><div class="kw-item"><b>be well worth a try</b><span class="zh">很值得一试</span></div><div class="kw-item"><b>prepare oneself for the future</b><span class="zh">为未来做好准备</span></div>
 </div>
 
 <div class="foot">
-  <div class="done">写完拍照或打字发微信，我逐句批改 ✓</div>
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
 </div>
 </div>
 </body>

@@ -11,10 +11,10 @@
   header { padding:6px 4px 14px; }
   .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
   .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
-  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
   .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
   .c-t { font-size:16px; font-weight:700; }
-  .c-s { font-size:15px; color:#8A8F99; margin:2px 0 10px; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
   .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
   .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
   .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
@@ -26,7 +26,7 @@
   .ex .zh { font-size:14px; font-weight:600; }
   .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
   .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
-  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:12px 14px; font-size:15px; font-weight:600; line-height:1.8; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
   .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
   .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
   .rv .body { display:none; margin-top:8px; }
@@ -39,15 +39,33 @@
   .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
   .pairs b { display:block; font-size:13px; }
   .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
   .foot { margin-top:16px; }
-  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div class="daylabel">DAY 16 · 翻译日<small>9月20日 · 周日</small></div>
-  <div class="why"><b>今日打法：</b>25 分钟四步——①弹药扫一眼 → ②中文原句自己翻（动笔，别只看）→ ③点开对照参考 → ④把 1 个句型抄进笔记本。</div>
+  <div class="why"><b>今日打法：</b>①读中文原句，自己动笔翻一遍 → ②写不出来别硬憋：逐句对照参考译文 → ③逐句背下来（先背句型骨架，再填细节）→ ④点译文区遮住英文自测，背完回微信「翻译已背」</div>
 </header>
 
 <div class="card">
@@ -61,24 +79,30 @@
 
 <div class="card">
   <div class="c-t">🎯 今日话题 · 旅游类</div>
-  <div class="c-s">先自己翻，再点开对照</div>
+  <div class="c-s">先自己翻一遍，再看下面的参考译文</div>
   <div class="prompt">近年来，中国大力发展文化旅游，各地加大了对历史街区和传统建筑的保护力度，推出多
 种文化体验项目。游客不仅能够欣赏自然风光，还能深入了解当地文化。文化旅游正在成为
 带动区域经济发展的重要力量。</div>
-  <div class="rv" onclick="this.classList.toggle('open')">
-    <div class="hint">👆 自己翻完后点这里看拆解与参考译文</div>
-    <div class="body">
-      <div class="li">①大趋势（大力发展）</div><div class="li">has been vigorously developing / has witnessed rapid growth</div><div class="li">②措施（加大保护力度+ 推出项目）</div><div class="li">taken measures to protect… / launched various cultural experience programs</div>
-      
-      <div class="en">In recent years, China has vigorously developed cultural tourism. Local governments have strengthened the protection of historical districts and traditional buildings and launched various cultural experience programs. These efforts allow visitors not only to appreciate natural scenery but also to gain a deeper understanding of local culture. Cultural tourism has thus become an important driving force behind regional economic development.</div>
-      
-    </div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">第 1 句</div><div class="sam-en">In recent years, China has vigorously developed cultural tourism.</div><div class="sam-zh">近年来，中国大力发展文化旅游。</div></div><div class="seg"><div class="s-label">第 2 句</div><div class="sam-en">Local governments have strengthened the protection of historical districts and traditional buildings and launched various cultural experience programs.</div><div class="sam-zh">各地加大了对历史街区和传统建筑的保护力度，推出多种文化体验项目。</div></div><div class="seg"><div class="s-label">第 3 句</div><div class="sam-en">Visitors can not only appreciate natural scenery but also gain a deeper understanding of local culture.</div><div class="sam-zh">游客不仅能够欣赏自然风光，还能深入了解当地文化。</div></div><div class="seg"><div class="s-label">第 4 句</div><div class="sam-en">Cultural tourism is becoming an important driving force behind regional economic development.</div><div class="sam-zh">文化旅游正在成为带动区域经济发展的重要力量。</div></div>
   </div>
-  <div class="pairs"><div><b>tourist attraction</b><small>旅游景点</small></div><div><b>scenic spot</b><small>风景名胜</small></div><div><b>cultural heritage site</b><small>文化遗产地</small></div><div><b>local customs and traditions</b><small>当地风俗</small></div><div><b>ancient town</b><small>古镇</small></div><div><b>traditional architecture</b><small>传统建筑</small></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>tourist attraction<em>旅游景点</em></span><span>scenic spot<em>风景名胜</em></span><span>heritage<em>n. 遗产</em></span><span>local culture<em>当地文化</em></span><span>tourist<em>n. 游客</em></span><span>boost<em>v. 促进</em></span><span>economy<em>n. 经济</em></span><span>unique<em>adj. 独特的</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（译文必背）</div>
+  <div class="c-s">背译文时顺手带走，考场直接套用</div>
+  <div class="kw-item"><b>vigorously develop</b><span class="zh">大力发展</span></div><div class="kw-item"><b>cultural tourism</b><span class="zh">文化旅游</span></div><div class="kw-item"><b>strengthen the protection of</b><span class="zh">加强对…的保护</span></div><div class="kw-item"><b>historical districts and traditional buildings</b><span class="zh">历史街区与传统建筑</span></div><div class="kw-item"><b>launch various programs</b><span class="zh">推出多种项目</span></div><div class="kw-item"><b>cultural experience programs</b><span class="zh">文化体验项目</span></div><div class="kw-item"><b>appreciate natural scenery</b><span class="zh">欣赏自然风光</span></div><div class="kw-item"><b>gain a deeper understanding of</b><span class="zh">更深入地了解</span></div><div class="kw-item"><b>an important driving force</b><span class="zh">重要的推动力量</span></div><div class="kw-item"><b>regional economic development</b><span class="zh">区域经济发展</span></div>
 </div>
 
 <div class="foot">
-  <div class="done">翻完回微信说「翻译完成」✓</div>
+  <div class="done">翻完/背完回微信「翻译已背」✓ 写不出就看译文背，背下来就是你的</div>
 </div>
 </div>
 </body>

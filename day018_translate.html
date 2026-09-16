@@ -11,10 +11,10 @@
   header { padding:6px 4px 14px; }
   .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
   .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
-  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
   .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
   .c-t { font-size:16px; font-weight:700; }
-  .c-s { font-size:15px; color:#8A8F99; margin:2px 0 10px; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
   .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
   .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
   .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
@@ -26,7 +26,7 @@
   .ex .zh { font-size:14px; font-weight:600; }
   .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
   .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
-  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:12px 14px; font-size:15px; font-weight:600; line-height:1.8; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
   .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
   .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
   .rv .body { display:none; margin-top:8px; }
@@ -39,15 +39,33 @@
   .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
   .pairs b { display:block; font-size:13px; }
   .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
   .foot { margin-top:16px; }
-  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div class="daylabel">DAY 18 · 翻译日<small>9月22日 · 周二</small></div>
-  <div class="why"><b>今日打法：</b>25 分钟四步——①弹药扫一眼 → ②中文原句自己翻（动笔，别只看）→ ③点开对照参考 → ④把 1 个句型抄进笔记本。</div>
+  <div class="why"><b>今日打法：</b>①读中文原句，自己动笔翻一遍 → ②写不出来别硬憋：逐句对照参考译文 → ③逐句背下来（先背句型骨架，再填细节）→ ④点译文区遮住英文自测，背完回微信「翻译已背」</div>
 </header>
 
 <div class="card">
@@ -61,24 +79,30 @@
 
 <div class="card">
   <div class="c-t">🎯 今日话题 · 乡村振兴</div>
-  <div class="c-s">先自己翻，再点开对照</div>
+  <div class="c-s">先自己翻一遍，再看下面的参考译文</div>
   <div class="prompt">近年来，中国大力推进乡村振兴，通过改善基础设施、发展特色产业、完善公共服务等措
 施，农村地区经济社会发展水平不断提升，居民生活质量显著改善。乡村振兴战略正为城乡
 融合发展注入新的动力。</div>
-  <div class="rv" onclick="this.classList.toggle('open')">
-    <div class="hint">👆 自己翻完后点这里看拆解与参考译文</div>
-    <div class="body">
-      <div class="li">①大趋势（推进乡村振兴）</div><div class="li">→has vigorously promoted rural revitalization / has made steady progress in…</div><div class="li">②措施（基础设施+ 产业+ 服务）</div><div class="li">→improving infrastructure / developing specialty industries / enhancing public services</div>
-      <div style="margin-top:8px"><div class="li">⚡ “inject momentum into…”</div></div>
-      <div class="en">In recent years, China has vigorously promoted rural revitalization. Through measures such as improving infrastructure, developing specialty industries, and enhancing public services, rural areas have witnessed steady economic and social development, and residents’ living standards have been significantly improved. The rural revitalization strategy has thus injected new momentum into</div>
-      
-    </div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">第 1 句</div><div class="sam-en">In recent years, China has vigorously promoted rural revitalization.</div><div class="sam-zh">近年来，中国大力推进乡村振兴。</div></div><div class="seg"><div class="s-label">第 2 句</div><div class="sam-en">Through measures such as improving infrastructure, developing specialty industries, and enhancing public services, rural areas have witnessed steady economic and social development, and residents&#x27; living standards have been significantly improved.</div><div class="sam-zh">通过改善基础设施、发展特色产业、完善公共服务等措施，农村地区经济社会发展水平不断提升，居民生活质量显著改善。</div></div><div class="seg"><div class="s-label">第 3 句</div><div class="sam-en">The rural revitalization strategy has injected new momentum into urban-rural integration.</div><div class="sam-zh">乡村振兴战略正为城乡融合发展注入新的动力。</div></div>
   </div>
-  <div class="pairs"><div><b>rural revitalization</b><small>乡村振兴</small></div><div><b>rural areas</b><small>农村地区</small></div><div><b>infrastructure</b><small>基础设施</small></div><div><b>farmland</b><small>农田</small></div><div><b>agricultural modernization</b><small>农业现代化</small></div><div><b>rural industries</b><small>乡村产业</small></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>rural area<em>农村地区</em></span><span>strategy<em>n. 战略</em></span><span>measure<em>n. 措施</em></span><span>income<em>n. 收入</em></span><span>modernization<em>n. 现代化</em></span><span>agriculture<em>n. 农业</em></span><span>employment<em>n. 就业</em></span><span>bridge the gap<em>缩小差距</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（译文必背）</div>
+  <div class="c-s">背译文时顺手带走，考场直接套用</div>
+  <div class="kw-item"><b>vigorously promote</b><span class="zh">大力推进</span></div><div class="kw-item"><b>rural revitalization</b><span class="zh">乡村振兴</span></div><div class="kw-item"><b>improve infrastructure</b><span class="zh">改善基础设施</span></div><div class="kw-item"><b>develop specialty industries</b><span class="zh">发展特色产业</span></div><div class="kw-item"><b>enhance public services</b><span class="zh">完善公共服务</span></div><div class="kw-item"><b>steady development</b><span class="zh">稳步发展</span></div><div class="kw-item"><b>living standards</b><span class="zh">生活水平</span></div><div class="kw-item"><b>significantly improve</b><span class="zh">显著改善</span></div><div class="kw-item"><b>inject new momentum into</b><span class="zh">为…注入新动力</span></div><div class="kw-item"><b>urban-rural integration</b><span class="zh">城乡融合</span></div>
 </div>
 
 <div class="foot">
-  <div class="done">翻完回微信说「翻译完成」✓</div>
+  <div class="done">翻完/背完回微信「翻译已背」✓ 写不出就看译文背，背下来就是你的</div>
 </div>
 </div>
 </body>

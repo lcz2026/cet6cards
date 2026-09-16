@@ -11,7 +11,7 @@
   header { padding:6px 4px 14px; }
   .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
   .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
-  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
   .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
   .c-t { font-size:16px; font-weight:700; }
   .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
@@ -22,21 +22,34 @@
   .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
   .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
   .hint b { color:#FF6B00; margin-right:4px; }
-  .skeleton { margin-top:10px; }
-  .sk { display:flex; gap:10px; margin-top:6px; }
-  .sk .n { flex:0 0 22px; height:22px; border-radius:50%; background:#FF6B00; color:#fff; font-size:12px; font-weight:700; text-align:center; line-height:22px; }
-  .sk .t { font-size:13px; color:#1F2329; }
-  .sk .t small { color:#8A8F99; }
   .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
   .foot { margin-top:16px; }
-  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div class="daylabel">DAY 17 · 写作日<small>9月21日 · 周一</small></div>
-  <div class="why"><b>今日打法：</b>30 分钟成一篇——用 DAY 4 的三段式骨架起稿，凑不出就套句型。先完成，再完美。</div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
 </header>
 
 <div class="card">
@@ -46,28 +59,39 @@
     <div class="en">Directions: Write an essay entitled "On the Value of Online Education"</div>
     <div class="zh">在线教育的价值 · 160-200 词</div>
   </div>
-  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 动笔写全篇</span></div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
 </div>
 
 <div class="card">
   <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
   <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
   <div class="hint"><b>1</b>打破时空限制，优质资源下沉（疫情网课是万能例）</div><div class="hint"><b>2</b>自主学习的试金石：自律者如虎添翼</div><div class="hint"><b>3</b>短板：互动与监督不足</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
 </div>
 
 <div class="card">
-  <div class="c-t">🦴 骨架回看</div>
-  <div class="c-s">DAY 4 模板直接套</div>
-  <div class="skeleton">
-    <div class="sk"><div class="n">1</div><div class="t"><b>开头</b>：引题 + 亮观点<br><small>Nowadays, … has become a heated topic. As far as I am concerned, …</small></div></div>
-    <div class="sk"><div class="n">2</div><div class="t"><b>主体</b>：两个论点 + 例子<br><small>First and foremost, … What's more, … Take … as an example.</small></div></div>
-    <div class="sk"><div class="n">3</div><div class="t"><b>结尾</b>：重申 + 展望<br><small>In conclusion, … Only in this way can we …</small></div></div>
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头 · 引题亮观点</div><div class="sam-en">In recent years, online education has become increasingly popular. As far as I am concerned, it is of great value, though it is not perfect.</div><div class="sam-zh">近年来，在线教育变得越来越受欢迎。在我看来，它很有价值，但并不完美。</div></div><div class="seg"><div class="s-label">② 主体段 · 优势+短板</div><div class="sam-en">The greatest advantage of online education is that it breaks the limits of time and space. Students in small towns can now enjoy top-quality courses through the Internet. Besides, online courses are usually cheaper, which reduces the cost of learning. However, online education also has shortcomings: it lacks face-to-face interaction, and it requires strong self-discipline.</div><div class="sam-zh">在线教育最大的优势在于它打破了时间与空间的限制。小镇上的学生现在也能通过互联网享受到优质课程。此外，网课通常更便宜，降低了学习成本。然而，在线教育也有短板：它缺乏面对面的互动，而且需要很强的自律能力。</div></div><div class="seg"><div class="s-label">③ 结尾 · 重申+展望</div><div class="sam-en">In conclusion, online education is a useful tool for learning. As long as we make good use of it, it will open a new door to knowledge.</div><div class="sam-zh">总之，在线教育是一种有用的学习工具。只要我们善加利用，它就会为我们打开一扇通往知识的新大门。</div></div>
   </div>
-  <div class="ammo">🔋 弹药提醒：袁隆平（坚持/奉献/创新）· 疫情网课（科技/教育）· 数据句 "According to a recent survey, …" · 高级替换 think→maintain / important→crucial / many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>online education<em>在线教育</em></span><span>advantage<em>n. 优势</em></span><span>shortcoming<em>n. 短板</em></span><span>interaction<em>n. 互动</em></span><span>self-discipline<em>n. 自律</em></span><span>knowledge<em>n. 知识</em></span><span>affordable<em>adj. 负担得起的</em></span><span>flexible<em>adj. 灵活的</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>increasingly popular</b><span class="zh">越来越受欢迎</span></div><div class="kw-item"><b>be of great value</b><span class="zh">很有价值</span></div><div class="kw-item"><b>break the limits of time and space</b><span class="zh">打破时空限制</span></div><div class="kw-item"><b>top-quality courses</b><span class="zh">优质课程</span></div><div class="kw-item"><b>reduce the cost of learning</b><span class="zh">降低学习成本</span></div><div class="kw-item"><b>lack face-to-face interaction</b><span class="zh">缺乏面对面互动</span></div><div class="kw-item"><b>strong self-discipline</b><span class="zh">很强的自律</span></div><div class="kw-item"><b>make good use of</b><span class="zh">善加利用</span></div><div class="kw-item"><b>open a new door to knowledge</b><span class="zh">打开知识的新大门</span></div>
 </div>
 
 <div class="foot">
-  <div class="done">写完拍照或打字发微信，我逐句批改 ✓</div>
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
 </div>
 </div>
 </body>
