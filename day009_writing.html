@@ -11,7 +11,7 @@
   header { padding:6px 4px 14px; }
   .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
   .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
-  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
   .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
   .c-t { font-size:16px; font-weight:700; }
   .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
@@ -22,21 +22,34 @@
   .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
   .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
   .hint b { color:#FF6B00; margin-right:4px; }
-  .skeleton { margin-top:10px; }
-  .sk { display:flex; gap:10px; margin-top:6px; }
-  .sk .n { flex:0 0 22px; height:22px; border-radius:50%; background:#FF6B00; color:#fff; font-size:12px; font-weight:700; text-align:center; line-height:22px; }
-  .sk .t { font-size:13px; color:#1F2329; }
-  .sk .t small { color:#8A8F99; }
   .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
   .foot { margin-top:16px; }
-  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div class="daylabel">DAY 9 · 写作日<small>9月13日 · 周日</small></div>
-  <div class="why"><b>今日打法：</b>30 分钟成一篇——用 DAY 4 的三段式骨架起稿，凑不出就套句型。先完成，再完美。</div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
 </header>
 
 <div class="card">
@@ -46,28 +59,39 @@
     <div class="en">Directions: Write an essay entitled "Technology: A Blessing or a Curse?"</div>
     <div class="zh">科技是福还是祸 · 160-200 词</div>
   </div>
-  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 动笔写全篇</span></div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
 </div>
 
 <div class="card">
   <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
   <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
   <div class="hint"><b>1</b>福：效率提升，生活便利（移动支付/网课）</div><div class="hint"><b>2</b>祸：隐私泄露、人与人的疏远</div><div class="hint"><b>3</b>结论：技术中立，关键看人怎么用（Only in this way can we…）</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
 </div>
 
 <div class="card">
-  <div class="c-t">🦴 骨架回看</div>
-  <div class="c-s">DAY 4 模板直接套</div>
-  <div class="skeleton">
-    <div class="sk"><div class="n">1</div><div class="t"><b>开头</b>：引题 + 亮观点<br><small>Nowadays, … has become a heated topic. As far as I am concerned, …</small></div></div>
-    <div class="sk"><div class="n">2</div><div class="t"><b>主体</b>：两个论点 + 例子<br><small>First and foremost, … What's more, … Take … as an example.</small></div></div>
-    <div class="sk"><div class="n">3</div><div class="t"><b>结尾</b>：重申 + 展望<br><small>In conclusion, … Only in this way can we …</small></div></div>
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头 · 设问亮观点</div><div class="sam-en">With smartphones in every pocket, technology has entered every corner of our life. Is it a blessing or a curse? Different people hold different opinions, but I believe it depends on how we use it.</div><div class="sam-zh">随着智能手机人手一部，科技已进入我们生活的每个角落。它是福还是祸？不同的人看法不同，但我认为这取决于我们如何使用它。</div></div><div class="seg"><div class="s-label">② 主体段 · 一利一弊</div><div class="sam-en">On the one hand, technology brings great convenience. We pay with a scan of a QR code, and we attend classes online at home. On the other hand, it also causes problems: our personal information may be leaked, and people spend less time talking face to face.</div><div class="sam-zh">一方面，科技带来极大便利。我们扫码支付，在家上网课。另一方面，它也带来问题：个人信息可能泄露，人们面对面交流的时间变少了。</div></div><div class="seg"><div class="s-label">③ 结尾 · 点破本质</div><div class="sam-en">In conclusion, technology itself is neutral. It is a blessing when we use it wisely, and a curse when we let it control our life. The choice is in our own hands.</div><div class="sam-zh">总之，科技本身是中立的。明智使用，它就是福；任它掌控生活，它就是祸。选择权在我们自己手中。</div></div>
   </div>
-  <div class="ammo">🔋 弹药提醒：袁隆平（坚持/奉献/创新）· 疫情网课（科技/教育）· 数据句 "According to a recent survey, …" · 高级替换 think→maintain / important→crucial / many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>smartphone<em>智能手机</em></span><span>convenience<em>便利</em></span><span>privacy<em>隐私</em></span><span>efficiency<em>效率</em></span><span>digital<em>数字的</em></span><span>screen time<em>屏幕时间</em></span><span>addiction<em>上瘾</em></span><span>innovation<em>创新</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>blessing / curse</b><span class="zh">n. 福 / 祸</span></div><div class="kw-item"><b>depend on</b><span class="zh">取决于</span></div><div class="kw-item"><b>bring great convenience</b><span class="zh">带来极大便利</span></div><div class="kw-item"><b>scan a QR code</b><span class="zh">扫二维码</span></div><div class="kw-item"><b>attend classes online</b><span class="zh">上网课</span></div><div class="kw-item"><b>personal information</b><span class="zh">个人信息</span></div><div class="kw-item"><b>be leaked</b><span class="zh">被泄露</span></div><div class="kw-item"><b>neutral</b><span class="zh">adj. 中立的</span></div>
 </div>
 
 <div class="foot">
-  <div class="done">写完拍照或打字发微信，我逐句批改 ✓</div>
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
 </div>
 </div>
 </body>
