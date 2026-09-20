@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 21 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 21 · 写作日<small>9月25日 · 周五</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 8 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay entitled "Reading in the Digital Age"</div>
+    <div class="zh">数字时代的阅读 · 160-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>碎片化 vs 深度阅读：短视频夺走注意力</div><div class="hint"><b>2</b>深度阅读不可替代：思维、共情、专注力</div><div class="hint"><b>3</b>怎么做：每天固定 30 分钟纸质书</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头 · 现象+亮观点</div><div class="sam-en">Nowadays, short videos and social media have taken up much of our attention. In my opinion, deep reading in the digital age is more important than ever before.</div><div class="sam-zh">如今，短视频和社交媒体占据了我们大量注意力。在我看来，数字时代的深度阅读比以往任何时候都重要。</div></div><div class="seg"><div class="s-label">② 主体段 · 让步+对比论证</div><div class="sam-en">Admittedly, digital reading is fast and convenient, for we can get information anytime and anywhere. However, fragmented reading hardly trains our minds. Deep reading, by contrast, teaches us to think logically and to focus on one thing for a long time. It also helps us better understand others&#x27; feelings.</div><div class="sam-zh">诚然，数字阅读快速便捷，我们随时随地都能获取信息。然而，碎片化阅读很难锻炼思维。相比之下，深度阅读教会我们逻辑思考、长时间专注于一件事，还能让我们更好地理解他人的感受。</div></div><div class="seg"><div class="s-label">③ 结尾 · 建议+展望</div><div class="sam-en">Therefore, why not set aside 30 minutes every day for a paper book? Deep reading will keep our minds sharp in this fast-changing digital world.</div><div class="sam-zh">因此，何不每天留出 30 分钟读一本纸质书呢？在这个快速变化的数字世界，深度阅读会让我们的头脑保持敏锐。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>reading<em>阅读</em></span><span>concentration<em>专注</em></span><span>deep reading<em>深度阅读</em></span><span>e-book<em>电子书</em></span><span>attention span<em>注意力时长</em></span><span>paper book<em>纸质书</em></span><span>information<em>信息</em></span><span>screen<em>n. 屏幕</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>take up one&#x27;s attention</b><span class="zh">占据注意力</span></div><div class="kw-item"><b>in the digital age</b><span class="zh">在数字时代</span></div><div class="kw-item"><b>more than ever before</b><span class="zh">比以往任何时候都…</span></div><div class="kw-item"><b>fragmented reading</b><span class="zh">碎片化阅读</span></div><div class="kw-item"><b>by contrast</b><span class="zh">相比之下</span></div><div class="kw-item"><b>think logically</b><span class="zh">逻辑思考</span></div><div class="kw-item"><b>focus on</b><span class="zh">专注于</span></div><div class="kw-item"><b>set aside</b><span class="zh">留出（时间）</span></div><div class="kw-item"><b>keep one&#x27;s mind sharp</b><span class="zh">保持头脑敏锐</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>
