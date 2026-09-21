@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 32 · 翻译日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
+  .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
+  .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
+  .words span { font-size:18px; font-weight:700; color:#FF6B00; background:#FFF7ED; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; letter-spacing:.3px; max-width:100%; word-break:break-word; min-width:0; }
+  .words .wl { font-size:17px; font-weight:700; color:#5B6472; background:#F2F3F5; border:1.5px solid #E5E6EB; padding:5px 14px; align-self:center; border-radius:10px; }
+  .exprl { font-size:16px; color:#1F2329; margin-bottom:10px; line-height:1.7; }
+  .exprl b { color:#C2410C; }
+  .ex { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:4px; }
+  .ex .zh { font-size:14px; font-weight:600; }
+  .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
+  .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
+  .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
+  .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
+  .rv .body { display:none; margin-top:8px; }
+  .rv.open .body { display:block; }
+  .rv.open .hint { display:none; }
+  .rv .li { margin:3px 0; }
+  .rv .en { color:#3B82F6; margin-top:8px; font-size:13px; }
+  .rv .cmt { margin-top:8px; font-size:12px; color:#16A34A; }
+  .pairs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px; }
+  .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
+  .pairs b { display:block; font-size:13px; }
+  .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 32 · 翻译日<small>10月6日 · 周二</small></div>
+  <div class="why"><b>今日打法：</b>①读中文原句，自己动笔翻一遍 → ②写不出来别硬憋：逐句对照参考译文 → ③逐句背下来（先背句型骨架，再填细节）→ ④点译文区遮住英文自测，背完回微信「翻译已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📦 今日弹药</div>
+  <div class="c-s">词汇块 · 状态与特征类 生动/ 栩栩如生</div>
+  <div class="lbl">生动/ 栩栩如生</div>
+  <div class="desc">描写人物、故事、形象的艺术性</div>
+  <div class="words"><span>vivid</span><span>lifelike</span><span>realistic</span><span>animated</span><span>graphic</span><span>true-to-life</span></div><div class="words"><span>动词搭配：portray vividly</span><span>depict...in detail</span><span>bring...to life</span></div>
+  <div class="ex"><div class="zh">小说中每个人物都刻画得栩栩如生，具有鲜明的个性。</div><div class="en">Each character in the novel is vividly portrayed, with a distinct personality.【精</div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 今日话题 · 文化类</div>
+  <div class="c-s">先自己翻一遍，再看下面的参考译文</div>
+  <div class="prompt">京剧以其独特的艺术风格和表演形式闻名，被誉为中国的国粹，在世界舞台上产生了深远
+影响。</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">第 1 句</div><div class="sam-en">Peking Opera is famous for its unique artistic style and performance forms.</div><div class="sam-zh">京剧以其独特的艺术风格和表演形式闻名。</div></div><div class="seg"><div class="s-label">第 2 句</div><div class="sam-en">It is hailed as a national treasure of China.</div><div class="sam-zh">它被誉为中国的国粹。</div></div><div class="seg"><div class="s-label">第 3 句</div><div class="sam-en">It has also exerted a far-reaching influence on the world stage.</div><div class="sam-zh">它还在世界舞台上产生了深远影响。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>Peking Opera<em>京剧</em></span><span>culture<em>文化</em></span><span>traditional<em>传统的</em></span><span>symbol<em>象征</em></span><span>inherit<em>传承</em></span><span>cultural heritage<em>文化遗产</em></span><span>spread<em>传播</em></span><span>art<em>艺术</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（译文必背）</div>
+  <div class="c-s">背译文时顺手带走，考场直接套用</div>
+  <div class="kw-item"><b>be famous for</b><span class="zh">因…而闻名</span></div><div class="kw-item"><b>artistic style</b><span class="zh">艺术风格</span></div><div class="kw-item"><b>performance forms</b><span class="zh">表演形式</span></div><div class="kw-item"><b>be hailed as</b><span class="zh">被誉为</span></div><div class="kw-item"><b>national treasure</b><span class="zh">国宝 · 国粹</span></div><div class="kw-item"><b>exert a far-reaching influence on</b><span class="zh">对…产生深远影响</span></div><div class="kw-item"><b>the world stage</b><span class="zh">世界舞台</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">翻完/背完回微信「翻译已背」✓ 写不出就看译文背，背下来就是你的</div>
+</div>
+</div>
+</body>
+</html>

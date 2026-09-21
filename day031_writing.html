@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 31 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 31 · 写作日<small>10月5日 · 周一</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 13 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay entitled "The Way to Success Lies in Perseverance"</div>
+    <div class="zh">成功之路在于坚持 · 160-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>坚持带来复利：1 万小时定律</div><div class="hint"><b>2</b>反面：半途而废者的常态</div><div class="hint"><b>3</b>万能例：袁隆平数十年田间钻研杂交水稻</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头 · 引名言点题</div><div class="sam-en">There is an old saying that constant dripping wears away the stone. It tells us that the way to success lies in perseverance.</div><div class="sam-zh">有句老话说，水滴石穿。它告诉我们：成功之路在于坚持。</div></div><div class="seg"><div class="s-label">② 主体段 · 名人例证</div><div class="sam-en">On the road to success, everyone meets difficulties. What separates winners from losers is not talent but persistence. Thomas Edison failed thousands of times before he invented the light bulb. It was perseverance that turned his dream into reality. Without it, even the most talented person can achieve nothing.</div><div class="sam-zh">在通往成功的路上，人人都会遇到困难。把赢家和输家区分开的不是天赋，而是坚持。爱迪生发明灯泡前失败了上千次。正是坚持把梦想变成了现实。没有坚持，再有天赋的人也将一事无成。</div></div><div class="seg"><div class="s-label">③ 结尾 · 重申+展望</div><div class="sam-en">In conclusion, never give up when things get hard. As long as we hold on to our goals, success will come sooner or later.</div><div class="sam-zh">总之，困难面前永不放弃。只要坚持目标，成功或早或晚都会到来。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>goal<em>目标</em></span><span>difficulty<em>困难</em></span><span>overcome<em>克服</em></span><span>effort<em>努力</em></span><span>patience<em>耐心</em></span><span>determination<em>决心</em></span><span>give up<em>放弃</em></span><span>sooner or later<em>迟早</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>constant dripping wears away the stone</b><span class="zh">水滴石穿</span></div><div class="kw-item"><b>perseverance</b><span class="zh">n. 坚持</span></div><div class="kw-item"><b>persistence</b><span class="zh">n. 毅力</span></div><div class="kw-item"><b>separate ... from ...</b><span class="zh">把…与…区分开</span></div><div class="kw-item"><b>talent</b><span class="zh">n. 天赋</span></div><div class="kw-item"><b>turn dream into reality</b><span class="zh">把梦想变成现实</span></div><div class="kw-item"><b>achieve nothing</b><span class="zh">一事无成</span></div><div class="kw-item"><b>hold on to</b><span class="zh">坚持住</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>

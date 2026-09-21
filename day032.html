@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 32 · 词单卡片</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { height:100%; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:#F6F6F8; color:#1F2329;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .wrap { max-width:480px; width:100%; margin:0 auto; height:100%; display:flex; flex-direction:column; position:relative; background:#F6F6F8; }
+
+  header { padding:14px 18px 10px; flex:none; }
+  .toprow { display:flex; align-items:center; justify-content:space-between; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .progress-num { font-size:13px; color:#8A8F99; font-variant-numeric:tabular-nums; }
+  .progress-num b { color:#1F2329; font-weight:700; }
+  .bar { height:4px; background:#E8E8EC; border-radius:99px; margin-top:10px; overflow:hidden; }
+  .bar i { display:block; height:100%; width:0; background:linear-gradient(90deg,#FF9A40,#FF6B00); border-radius:99px; transition:width .25s ease; }
+
+  .stage { flex:1; position:relative; overflow:hidden; margin-top:6px; }
+  .card {
+    position:absolute; inset:10px 18px 8px; background:#fff; border-radius:22px;
+    box-shadow:0 8px 30px rgba(31,35,41,.07), 0 1px 3px rgba(31,35,41,.04);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:30px 26px 26px; text-align:center;
+    transition:transform .18s ease, opacity .18s ease; will-change:transform;
+  }
+  .card.enter-left { transform:translateX(60px); opacity:0; transition:none; }
+  .card.enter-right { transform:translateX(-60px); opacity:0; transition:none; }
+
+  .page-tag { position:absolute; top:16px; right:18px; font-size:11px; color:#C3C7CF; font-weight:500; }
+  .seq-tag { position:absolute; top:16px; left:18px; font-size:11px; color:#C3C7CF; font-weight:600; font-variant-numeric:tabular-nums; }
+
+  .word { font-size:clamp(30px,9vw,44px); font-weight:800; color:#FF6B00; letter-spacing:.2px; line-height:1.15; word-break:break-word; }
+
+  .speak { margin-top:10px; display:inline-flex; align-items:center; gap:7px; background:#FFF3E9; border-radius:99px; padding:6px 14px; border:none; cursor:pointer; }
+  .speak:active { transform:scale(.96); }
+  .speak .ph { font-size:14px; color:#8A8F99; }
+  .speak .ph:empty { display:none; }
+  .speak svg { width:15px; height:15px; flex:none; }
+
+  .defs { margin-top:26px; width:100%; max-width:340px; }
+  .def { font-size:18px; line-height:1.65; color:#1F2329; padding:9px 0; border-bottom:1px solid #F2F2F5; }
+  .def:first-child { border-top:1px solid #F2F2F5; }
+  .def .pos { display:inline-block; font-size:12px; color:#FF6B00; background:#FFF3E9; border-radius:6px; padding:1px 7px; margin-right:8px; vertical-align:2px; font-weight:600; }
+  .def .pos:empty { display:none; }
+
+  .marked { position:absolute; bottom:16px; left:18px; font-size:11px; font-weight:600; display:none; }
+  .card.is-star .marked.star { display:block; color:#FF6B00; }
+  .card.is-known .marked.known { display:block; color:#10B981; }
+
+  .actions { flex:none; padding:6px 18px 4px; display:flex; gap:12px; }
+  .btn { flex:1; height:52px; border-radius:16px; font-size:16px; font-weight:700; cursor:pointer; border:none; display:flex; align-items:center; justify-content:center; gap:6px; }
+  .btn:active { transform:scale(.97); }
+  .btn-known { background:#F0FDF6; color:#10B981; border:1.5px solid #BBF0D5; }
+  .btn-star { background:#FFF6EF; color:#FF6B00; border:1.5px solid #FFDDC0; }
+
+  nav { flex:none; padding:10px 18px calc(16px + env(safe-area-inset-bottom)); display:flex; align-items:center; gap:10px; }
+  .nav-arrow { width:52px; height:48px; flex:none; border-radius:99px; background:#fff; border:1px solid #E8E8EC; box-shadow:0 2px 8px rgba(31,35,41,.05); font-size:19px; color:#8A8F99; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .nav-arrow:active { transform:scale(.95); }
+  .nav-next { flex:1; height:48px; border-radius:99px; background:#1F2329; color:#fff; border:none; font-size:15px; cursor:pointer; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px; }
+  .nav-next:active { opacity:.9; }
+  .nav-next .lab { color:#9DA3AE; font-size:11px; font-weight:500; flex:none; }
+  .nav-next .nword { font-weight:700; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+  .summary { display:none; flex-direction:column; align-items:center; justify-content:center; padding:30px; text-align:center; }
+  .summary h2 { font-size:24px; margin-bottom:8px; }
+  .summary .sub { color:#8A8F99; font-size:14px; margin-bottom:26px; }
+  .stats { display:flex; gap:14px; margin-bottom:30px; width:100%; max-width:320px; }
+  .stat { flex:1; background:#fff; border-radius:18px; padding:16px 8px; box-shadow:0 4px 16px rgba(31,35,41,.05); }
+  .stat b { display:block; font-size:26px; }
+  .stat span { font-size:12px; color:#8A8F99; }
+  .stat.ok b { color:#10B981; } .stat.star b { color:#FF6B00; }
+  .starlist { width:100%; max-width:340px; max-height:34vh; overflow-y:auto; background:#fff; border-radius:18px; padding:8px 0; box-shadow:0 4px 16px rgba(31,35,41,.05); display:none; }
+  .starlist .st { padding:10px 18px; font-size:14px; display:flex; justify-content:space-between; border-bottom:1px solid #F5F5F7; }
+  .starlist .st:last-child { border-bottom:none; }
+  .starlist .st em { font-style:normal; color:#8A8F99; font-size:12px; max-width:55%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .again { margin-top:22px; height:50px; border-radius:99px; border:none; background:linear-gradient(90deg,#FF9A40,#FF6B00); color:#fff; font-size:16px; font-weight:700; padding:0 34px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="toprow">
+      <div class="daylabel">DAY 32<small>10月6日 · 第125-128页</small></div>
+      <div class="progress-num"><b id="cur">1</b> / <span id="total">80</span></div>
+    </div>
+    <div class="bar"><i id="barfill"></i></div>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="card" id="card">
+      <div class="seq-tag" id="seq"></div>
+      <div class="page-tag" id="pagetag"></div>
+      <div class="word" id="word"></div>
+      <button class="speak" id="speak" aria-label="发音">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        <span class="ph" id="phone"></span>
+      </button>
+      <div class="defs" id="defs"></div>
+      <div class="marked known">✓ 已划过</div>
+      <div class="marked star">★ 生词</div>
+    </div>
+
+    <div class="card summary" id="summary">
+      <h2 id="sumTitle">今日词单完成 🎉</h2>
+      <div class="sub" id="sumSub"></div>
+      <div class="stats">
+        <div class="stat ok"><b id="nKnown">0</b><span>认识划过</span></div>
+        <div class="stat star"><b id="nStar">0</b><span>生词待精背</span></div>
+        <div class="stat"><b id="nLeft">0</b><span>还没刷到</span></div>
+      </div>
+      <div class="starlist" id="starlist"></div>
+      <button class="again" id="btnAgain">只刷生词</button>
+    </div>
+  </div>
+
+  <div class="actions" id="actions">
+    <button class="btn btn-known" id="btnKnown">✓ 认识，划过</button>
+    <button class="btn btn-star" id="btnStar">★ 生词，记下</button>
+  </div>
+
+  <nav>
+    <button class="nav-arrow" id="prev">‹</button>
+    <button class="nav-next" id="next"><span class="lab">下一个</span><span class="nword" id="nextword"></span></button>
+    <button class="nav-arrow" id="skip">›</button>
+  </nav>
+</div>
+
+<script>
+const WORDS = [{"word": "confidence", "phone": "'kɑnfɪdəns", "pos": "n.", "defs": ["信⼼，信任", "⾃信", "把握", "秘密"], "page": 125}, {"word": "cynical", "phone": "", "pos": "adj.", "defs": ["愤世嫉俗的", "⽆所顾忌的"], "page": 125}, {"word": "cynicism", "phone": "", "pos": "n.", "defs": ["愤世嫉俗"], "page": 125}, {"word": "confidential", "phone": ",kɑnfɪ'dɛnʃl", "pos": "adj.", "defs": ["机密的", "(讲话) 悄悄的"], "page": 125}, {"word": "courageous", "phone": "kə'redʒəs", "pos": "adj.", "defs": ["勇敢的，⽆畏的"], "page": 125}, {"word": "encourage", "phone": "ɪn'kɝrɪdʒ", "pos": "vt.", "defs": ["⿎励", "劝告，怂恿", "促进，刺激"], "page": 125}, {"word": "encouragement", "phone": "", "pos": "n.", "defs": ["⿎励，激励"], "page": 125}, {"word": "encouraging", "phone": "", "pos": "adj.", "defs": ["令⼈⿎舞的，振奋⼈⼼的"], "page": 125}, {"word": "discourage", "phone": "dɪs'kɝɪdʒ", "pos": "vt.", "defs": ["打消…的念头，阻⽌", "使灰⼼"], "page": 125}, {"word": "discouraged", "phone": "", "pos": "adj.", "defs": ["灰⼼的，⽓馁的"], "page": 125}, {"word": "coward", "phone": "", "pos": "n.", "defs": ["胆⼩⻤，懦夫"], "page": 125}, {"word": "cowardly", "phone": "", "pos": "adj.", "defs": ["胆⼩的，懦弱的"], "page": 125}, {"word": "cowardice", "phone": "", "pos": "n.", "defs": ["胆⼩，怯懦"], "page": 125}, {"word": "timid", "phone": "", "pos": "adj.", "defs": ["胆怯的，羞怯的"], "page": 125}, {"word": "intimidate", "phone": "", "pos": "vt.", "defs": ["恐吓，威胁"], "page": 125}, {"word": "intimidation", "phone": "", "pos": "n.", "defs": ["威胁，恐吓"], "page": 125}, {"word": "threat", "phone": "θrɛt", "pos": "n.", "defs": ["威胁", "坏事发⽣的可能"], "page": 125}, {"word": "threaten", "phone": "'θrɛtn", "pos": "vt.", "defs": ["威胁", "危害到 vi. vt. (坏事) 可能发⽣，可能引发"], "page": 125}, {"word": "elegant", "phone": "'ɛləgənt", "pos": "adj.", "defs": ["优雅的，雅致的", "简洁巧妙的"], "page": 125}, {"word": "elegance", "phone": "", "pos": "n.", "defs": ["优雅，典雅"], "page": 125}, {"word": "grace", "phone": "gres", "pos": "n.", "defs": ["优美，优雅", "恩惠", "(付款) 宽限期"], "page": 126}, {"word": "graceful", "phone": "", "pos": "adj.", "defs": ["优美的，优雅的"], "page": 126}, {"word": "gracious", "phone": "", "pos": "adj.", "defs": ["和蔼慈祥的", "尊贵的", "舒适的 int. (表惊讶、不满) 天哪"], "page": 126}, {"word": "luxury", "phone": "", "pos": "n.", "defs": ["奢侈", "奢侈品", "难得的享受"], "page": 126}, {"word": "luxurious", "phone": "lʌɡ'ʒʊrɪəs", "pos": "adj.", "defs": ["舒适豪华的，奢侈的"], "page": 126}, {"word": "extravagant", "phone": "", "pos": "adj.", "defs": ["奢侈的，铺张浪费的", "离谱的"], "page": 126}, {"word": "extravagance", "phone": "", "pos": "n.", "defs": ["铺张浪费", "奢侈品", "豪华，奢华"], "page": 126}, {"word": "reliable", "phone": "rɪ'laɪəbl", "pos": "adj.", "defs": ["可信赖的，可依靠的"], "page": 126}, {"word": "reliance", "phone": "", "pos": "n.", "defs": ["依赖，依靠"], "page": 126}, {"word": "liable", "phone": "", "pos": "adj.", "defs": ["可能做…的", "有责任的", "易遭受…"], "page": 126}, {"word": "liability", "phone": "'laɪə'bɪləti", "pos": "n.", "defs": ["(法律上的) 责任", "累赘", "债务"], "page": 126}, {"word": "credible", "phone": "", "pos": "adj.", "defs": ["可信的，可靠的", "可接受的"], "page": 126}, {"word": "credibility", "phone": "", "pos": "n.", "defs": ["可信性，可靠性"], "page": 126}, {"word": "incredible", "phone": "ɪn'krɛdəbl", "pos": "adj.", "defs": ["极好的，极⼤的", "难以置信的"], "page": 126}, {"word": "skeptical", "phone": "'skɛptɪkl", "pos": "adj.", "defs": ["表⽰怀疑的，持怀疑态度的"], "page": 126}, {"word": "skeptic", "phone": "", "pos": "n.", "defs": ["怀疑论者，持怀疑态度的⼈"], "page": 126}, {"word": "skepticism", "phone": "", "pos": "n.", "defs": ["怀疑态度"], "page": 126}, {"word": "dubious", "phone": "", "pos": "adj.", "defs": ["怀疑的", "可疑的", "不光彩的"], "page": 126}, {"word": "decide", "phone": "", "pos": "vt. vi.", "defs": ["决定", "裁定 vt. 使…下定决⼼"], "page": 126}, {"word": "decisive", "phone": "dɪ'saɪsɪv", "pos": "adj.", "defs": ["决定性的，关键的", "果断的"], "page": 126}, {"word": "decision", "phone": "", "pos": "n.", "defs": ["决定", "决断⼒", "作出决定"], "page": 127}, {"word": "vain", "phone": "", "pos": "adj.", "defs": ["徒劳的", "⾃负的，虚荣的"], "page": 127}, {"word": "vanity", "phone": "", "pos": "n.", "defs": ["⾃负，虚荣", "梳妆台"], "page": 127}, {"word": "vicious", "phone": "", "pos": "adj.", "defs": ["残暴的，凶猛的 adj. 恶毒的", "恶性的，严重的"], "page": 127}, {"word": "coarse", "phone": "", "pos": "adj.", "defs": ["粗糙的", "⼤颗粒的", "粗鲁的"], "page": 127}, {"word": "slip", "phone": "", "pos": "vi.", "defs": ["滑倒", "滑落", "溜⾛", "变差", "陷⼊ vt. 悄悄塞", "摆脱，松开 vi. vt. (迅速且容易地) 穿或脱 n. 差错", "纸条", "滑倒", "衬裙"], "page": 127}, {"word": "slipper", "phone": "", "pos": "n.", "defs": ["拖鞋"], "page": 127}, {"word": "slippery", "phone": "'slɪpəri", "pos": "adj.", "defs": ["滑溜溜的", "狡猾的", "模棱两可的"], "page": 127}, {"word": "rough", "phone": "", "pos": "adj.", "defs": ["粗糙的", "⼤致的", "粗暴的 adj. 艰难的 n. 草稿，草图 adv. 粗鲁地，粗野地"], "page": 127}, {"word": "roughly", "phone": "", "pos": "adv.", "defs": ["⼤体上，⼤约", "粗暴地", "粗略地"], "page": 127}, {"word": "tough", "phone": "tʌf", "pos": "adj.", "defs": ["艰难的", "严厉的，强硬的 adj. 坚强的", "剽悍的", "结实的 n. 暴徒，恶棍 v. 坚持，捱过"], "page": 127}, {"word": "ordeal", "phone": "", "pos": "n.", "defs": ["苦难的经历，折磨，煎熬"], "page": 127}, {"word": "ridiculous", "phone": "rɪ'dɪkjələs", "pos": "adj.", "defs": ["荒谬的，可笑的"], "page": 127}, {"word": "restless", "phone": "", "pos": "adj.", "defs": ["坐⽴不安的", "没有真正休息的"], "page": 127}, {"word": "outgoing", "phone": "'aʊt'goɪŋ", "pos": "adj.", "defs": ["外向的", "即将卸任的", "离去的"], "page": 127}, {"word": "wary", "phone": "", "pos": "adj.", "defs": ["⼩⼼的，提防的"], "page": 127}, {"word": "daring", "phone": "", "pos": "adj.", "defs": ["⼤胆的，敢于冒险的 n. 胆量，勇⽓，冒险精神"], "page": 127}, {"word": "radiate", "phone": "", "pos": "vt. vi.", "defs": ["散发，流露", "发出 (光、辐射等) vi. 呈辐射状发散 (或伸展)"], "page": 127}, {"word": "radiation", "phone": "", "pos": "n.", "defs": ["辐射", "放射疗法"], "page": 127}, {"word": "radiator", "phone": "", "pos": "n.", "defs": ["散热器，暖⽓⽚", "冷却器，⽔箱"], "page": 127}, {"word": "radiant", "phone": "", "pos": "adj.", "defs": ["容光焕发的", "灿烂的", "辐射的"], "page": 128}, {"word": "radioactive", "phone": "", "pos": "adj.", "defs": ["放射性的，有辐射的"], "page": 128}, {"word": "radioactivity", "phone": "", "pos": "n.", "defs": ["放射 (性)"], "page": 128}, {"word": "silicon", "phone": "", "pos": "n.", "defs": ["硅"], "page": 128}, {"word": "spark", "phone": "spɑrk", "pos": "n.", "defs": ["⽕花", "⼀丁点", "活⼒", "诱因 vt. 引发，触发 vi. 产⽣电⽕花"], "page": 128}, {"word": "sparkle", "phone": "", "pos": "vi.", "defs": ["闪闪发光，闪耀 n. 光亮，闪光", "闪光点，亮点"], "page": 128}, {"word": "gleam", "phone": "", "pos": "vi.", "defs": ["闪烁，闪耀", "(眼睛) 流露出 n. 微光，反光", "(情感的) 表露"], "page": 128}, {"word": "polish", "phone": "", "pos": "vt. vi.", "defs": ["擦光，抛光 vt. 改善，润⾊ n. 抛光剂，亮光剂", "抛光，擦亮"], "page": 128}, {"word": "enlighten", "phone": "", "pos": "vt.", "defs": ["启发，开导，教化"], "page": 128}, {"word": "enlightenment", "phone": "", "pos": "n.", "defs": ["启发，教化", "启蒙运动"], "page": 128}, {"word": "enlightening", "phone": "", "pos": "adj.", "defs": ["有启发性的，使⼈增进知识的"], "page": 128}, {"word": "delight", "phone": "dɪ'laɪt", "pos": "n.", "defs": ["⾼兴，愉快", "令⼈⾼兴的事 (⼈) vt. 使⾼兴，使愉快"], "page": 128}, {"word": "delightful", "phone": "dɪ'laɪtfl", "pos": "adj.", "defs": ["令⼈愉快的"], "page": 128}, {"word": "plight", "phone": "", "pos": "n.", "defs": ["困境，难关"], "page": 128}, {"word": "dilemma", "phone": "dɪˈlemə", "pos": "n.", "defs": ["(进退两难的) 窘境，困境"], "page": 128}, {"word": "trap", "phone": "træp", "pos": "n.", "defs": ["陷阱，圈套", "困境，牢笼", "嘴 vt. 使陷⼊困境", "卡住", "使陷⼊圈套 vt. 留存，储存(⽓、⽔等)"], "page": 128}, {"word": "strap", "phone": "stræp", "pos": "n.", "defs": ["带⼦ vt. ⽤带⼦系 (或绑)", "⽤绷带包扎"], "page": 128}, {"word": "strip", "phone": "strɪp", "pos": "n.", "defs": ["(纸、布料等的) 条", "狭⻓地带 vt. 除去", "全部拿⾛", "拆卸", "剥夺 vi. vt. 脱光⾐服，扒光…的⾐服"], "page": 128}, {"word": "stripe", "phone": "", "pos": "n.", "defs": ["条纹，线条", "军阶条", "种类"], "page": 128}, {"word": "ignite", "phone": "", "pos": "vt. vi.", "defs": ["点燃，(使) 燃烧 vt. 激起，引发"], "page": 128}];
+const STORE_KEY = 'wc_day32';
+let state = load() || { known: [], star: [], last: 0, starOnly: false };
+let i = Math.min(state.last, WORDS.length - 1);
+
+function load(){ try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch(e){ return null; } }
+function save(){ state.last = i; try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){} }
+
+const $ = id => document.getElementById(id);
+const card = $('card'), summary = $('summary');
+
+function isStar(idx){ return state.star[idx]; }
+function isKnown(idx){ return state.known[idx]; }
+
+function visibleIndices(){
+  if (state.starOnly) { const v = WORDS.map((_,k)=>k).filter(k=>isStar(k)); return v.length ? v : WORDS.map((_,k)=>k); }
+  return WORDS.map((_,k)=>k);
+}
+
+function render(dir){
+  const vis = visibleIndices();
+  const pos = vis.indexOf(i); if (pos === -1) { i = vis[0] || 0; }
+  const w = WORDS[i];
+  summary.style.display = 'none';
+  card.style.display = 'flex';
+  if (dir === 1) { card.classList.add('enter-left'); } else if (dir === -1) { card.classList.add('enter-right'); }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ card.classList.remove('enter-left','enter-right'); }));
+
+  $('seq').textContent = '#' + (i+1);
+  $('pagetag').textContent = '第' + w.page + '页';
+  $('word').textContent = w.word;
+  $('phone').textContent = w.phone ? '/' + w.phone + '/' : '';
+  const defs = $('defs'); defs.innerHTML = '';
+  const defArr = w.defs.length ? w.defs : ['—'];
+  defArr.forEach(t => {
+    const div = document.createElement('div'); div.className = 'def';
+    const pos = document.createElement('span'); pos.className = 'pos'; pos.textContent = w.pos;
+    div.appendChild(pos); div.appendChild(document.createTextNode(t));
+    defs.appendChild(div);
+  });
+  card.classList.toggle('is-star', !!isStar(i));
+  card.classList.toggle('is-known', !!isKnown(i));
+
+  const nextIdx = vis[(pos+1) % vis.length];
+  $('nextword').textContent = WORDS[nextIdx].word;
+  $('cur').textContent = pos + 1;
+  $('total').textContent = vis.length;
+  $('barfill').style.width = ((pos+1)/vis.length*100) + '%';
+  if (state.starOnly) { $('btnAgain').textContent = '返回全部'; } else { $('btnAgain').textContent = '只刷生词'; }
+  save();
+  speak(false);
+}
+
+function speak(loud){
+  if (!('speechSynthesis' in window)) return;
+  if (!loud && document.hidden) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(WORDS[i].word);
+    u.lang = 'en-US'; u.rate = .92;
+    speechSynthesis.speak(u);
+  } catch(e){}
+}
+
+function go(step){
+  const vis = visibleIndices();
+  let pos = vis.indexOf(i);
+  pos = (pos + step + vis.length) % vis.length;
+  i = vis[pos];
+  render(step > 0 ? 1 : -1);
+}
+
+function mark(kind, val){
+  const vis = visibleIndices();
+  if (kind === 'known') { state.known[i] = val; if (val) state.star[i] = false; }
+  else { state.star[i] = val; if (val) state.known[i] = false; }
+  save();
+  const pos = vis.indexOf(i);
+  if (pos === vis.length - 1) { render(0); setTimeout(finishMaybe, 350); }
+  else go(1);
+}
+
+function finishMaybe(){
+  const vis = visibleIndices();
+  const pos = vis.indexOf(i);
+  if (pos === vis.length - 1) showSummary();
+}
+
+function showSummary(){
+  card.style.display = 'none';
+  summary.style.display = 'flex';
+  $('actions').style.visibility = 'hidden';
+  const nK = WORDS.filter((_,k)=>isKnown(k)).length;
+  const nS = WORDS.filter((_,k)=>isStar(k)).length;
+  $('nKnown').textContent = nK; $('nStar').textContent = nS;
+  $('nLeft').textContent = WORDS.length - nK - nS;
+  $('sumSub').textContent = state.starOnly ? '生词二刷完毕，晚 21:00 复盘见' : WORDS.length + ' 词快过完成，晚上复盘时告诉我生词背了没';
+  const list = $('starlist'); list.innerHTML = '';
+  if (nS > 0) {
+    list.style.display = 'block';
+    WORDS.forEach((w,k)=>{ if (isStar(k)) {
+      const row = document.createElement('div'); row.className = 'st';
+      row.innerHTML = '<b style="color:#FF6B00">' + w.word + '</b><em>' + (w.defs[0]||'') + '</em>';
+      row.onclick = () => { i = k; state.starOnly = false; $('actions').style.visibility = 'visible'; render(0); };
+      list.appendChild(row);
+    }});
+  } else { list.style.display = 'none'; }
+}
+
+$('btnKnown').onclick = () => mark('known', !isKnown(i));
+$('btnStar').onclick = () => mark('star', !isStar(i));
+$('prev').onclick = () => go(-1);
+$('next').onclick = () => { const vis = visibleIndices(); const pos = vis.indexOf(i); if (pos === vis.length-1) showSummary(); else go(1); };
+$('skip').onclick = () => go(1);
+$('speak').onclick = () => speak(true);
+$('btnAgain').onclick = () => {
+  state.starOnly = !state.starOnly;
+  $('actions').style.visibility = 'visible';
+  const vis = visibleIndices();
+  i = vis[0];
+  render(0);
+};
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+
+let sx = 0, dx = 0, swiping = false;
+const stage = $('stage');
+stage.addEventListener('touchstart', e => { if (summary.style.display === 'flex') return; sx = e.touches[0].clientX; dx = 0; swiping = true; card.style.transition = 'none'; }, {passive:true});
+stage.addEventListener('touchmove', e => { if (!swiping) return; dx = e.touches[0].clientX - sx; card.style.transform = 'translateX(' + dx + 'px)'; card.style.opacity = String(1 - Math.min(Math.abs(dx)/300, .5)); }, {passive:true});
+stage.addEventListener('touchend', () => {
+  if (!swiping) return; swiping = false;
+  card.style.transition = ''; card.style.transform = ''; card.style.opacity = '';
+  if (dx < -55) go(1); else if (dx > 55) go(-1);
+});
+
+render(0);
+</script>
+</body>
+</html>
