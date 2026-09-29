@@ -37,15 +37,17 @@
   .page-tag { position:absolute; top:16px; right:18px; font-size:11px; color:#C3C7CF; font-weight:500; }
   .seq-tag { position:absolute; top:16px; left:18px; font-size:11px; color:#C3C7CF; font-weight:600; font-variant-numeric:tabular-nums; }
 
-  .word { font-size:clamp(30px,9vw,44px); font-weight:800; color:#FF6B00; letter-spacing:.2px; line-height:1.15; word-break:break-word; }
+  .word { font-size:clamp(30px,9vw,44px); font-weight:800; color:#FF6B00; letter-spacing:.2px; line-height:1.15; word-break:break-word; flex-shrink:0; }
 
-  .speak { margin-top:10px; display:inline-flex; align-items:center; gap:7px; background:#FFF3E9; border-radius:99px; padding:6px 14px; border:none; cursor:pointer; }
+  .speak { margin-top:10px; flex-shrink:0; display:inline-flex; align-items:center; gap:7px; background:#FFF3E9; border-radius:99px; padding:6px 14px; border:none; cursor:pointer; }
   .speak:active { transform:scale(.96); }
   .speak .ph { font-size:14px; color:#8A8F99; }
   .speak .ph:empty { display:none; }
   .speak svg { width:15px; height:15px; flex:none; }
 
-  .defs { margin-top:26px; width:100%; max-width:340px; }
+  .defs { margin-top:26px; width:100%; max-width:340px; flex:0 1 auto; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .card.many .defs { margin-top:14px; }
+  .card.many .def { font-size:15px; line-height:1.5; padding:6px 0; }
   .def { font-size:18px; line-height:1.65; color:#1F2329; padding:9px 0; border-bottom:1px solid #F2F2F5; }
   .def:first-child { border-top:1px solid #F2F2F5; }
   .def .pos { display:inline-block; font-size:12px; color:#FF6B00; background:#FFF3E9; border-radius:6px; padding:1px 7px; margin-right:8px; vertical-align:2px; font-weight:600; }
@@ -174,6 +176,7 @@ function render(dir){
     div.appendChild(pos); div.appendChild(document.createTextNode(t));
     defs.appendChild(div);
   });
+  card.classList.toggle('many', defArr.length >= 8);
   card.classList.toggle('is-star', !!isStar(i));
   card.classList.toggle('is-known', !!isKnown(i));
 
