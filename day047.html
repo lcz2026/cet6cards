@@ -176,7 +176,7 @@ if (state.starOnly && state.queue.indexOf(i) === -1) i = state.queue[0];
 function render(dir){
   let vis = visibleIndices();
   if (!vis.length) { state.starOnly = false; state.queue = null; vis = visibleIndices(); }  // 队列空兜底：回全部模式
-  const pos = vis.indexOf(i); if (pos === -1) { i = vis[0] || 0; }
+  let pos = vis.indexOf(i); if (pos === -1) { i = vis[0] || 0; pos = 0; }  // 位置失效兜底：重置后同步修正 pos，防止页码显示 0
   const w = WORDS[i];
   summary.style.display = 'none';
   card.style.display = 'flex';
@@ -276,13 +276,16 @@ $('btnAgain').onclick = () => {
   if (!state.starOnly) {
     const q = buildQueue();
     if (!q.length) { alert('目前没有生词，全部划过 ✓'); return; }
+    state.fullLast = i;                        // 记住一刷位置：退出二刷时回到这里，不再甩回 #1
     state.starOnly = true; state.queue = q;   // 快照队列：进入二刷时锁定生词清单
   } else {
     state.starOnly = false; state.queue = null;
+    if (typeof state.fullLast === 'number' && state.fullLast >= 0 && state.fullLast < WORDS.length) i = state.fullLast;
+    state.fullLast = null;
   }
   $('actions').style.visibility = 'visible';
   const vis = visibleIndices();
-  i = vis[0] || 0;
+  if (vis.indexOf(i) === -1) i = vis[0] || 0;
   render(0);
 };
 
