@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>我的作文模板 · 手写识别纠错版</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .fix { border-bottom:1px dashed #E5E7EB; padding:10px 2px; font-size:14px; line-height:1.8; }
+  .fix:last-child { border-bottom:none; }
+  .fix .no { display:inline-block; font-size:11px; font-weight:700; color:#fff; background:#EF4444; border-radius:6px; padding:1px 7px; margin-right:6px; }
+  .fix.up .no { background:#F59E0B; }
+  .fix b.was { color:#DC2626; text-decoration:line-through; font-weight:600; }
+  .fix b.now { color:#059669; font-weight:700; }
+  .fix .r { display:block; font-size:12.5px; color:#8A8F99; margin-top:2px; }
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  .tb { color:#C2410C; font-weight:700; border-bottom:2px solid #FB923C; padding:0 2px; }
+  .step { border-bottom:1px dashed #E5E7EB; padding:9px 2px; font-size:14px; line-height:1.75; }
+  .step:last-child { border-bottom:none; }
+  .step b { color:#3B82F6; margin-right:6px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13.5px; color:#1F2329; line-height:1.85; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .swap { background:#F0FDF4; border-radius:12px; padding:12px 14px; margin-top:10px; font-size:13.5px; line-height:1.9; }
+  .swap b { color:#059669; }
+  .en-s { display:block; font-size:15px; color:#111827; font-weight:600; margin-top:6px; }
+  .zh-s { display:block; font-size:12.5px; color:#6B7280; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">📝 我的作文模板<small>手写识别 · 纠错版 · 11月10日入库</small></div>
+  <div class="why"><b>打法：</b>这是观点论证类（"X 的重要性"）万能模板，三段九空。考场 = 默写 + 换主题词。先背熟框架，再拿真题套两遍练手感。</div>
+</header>
+
+<div class="card">
+  <div class="c-t">✏️ 纠错清单</div>
+  <div class="c-s">红 = 必改 · 黄 = 建议升级（原句不算错）</div>
+  <div class="fix"><span class="no">1</span><b class="was">begings</b> → <b class="now">begins</b><span class="r">拼写：begin 三单 begins</span></div>
+  <div class="fix"><span class="no">2</span><b class="was">equip ourselves</b> → <b class="now">equip themselves</b><span class="r">代词一致：for students / youngsters 是第三人称复数，反身代词用 themselves；只有空里填 us 时才用 ourselves</span></div>
+  <div class="fix"><span class="no">3</span><b class="was">long-river</b> → <b class="now">long river</b><span class="r">名词短语不加连字符：in the long river of human civilization</span></div>
+  <div class="fix"><span class="no">4</span><b class="was">take</b> → <b class="now">tackle</b><span class="r">你自己已划改 ✓ tackle future challenges 正确</span></div>
+  <div class="fix"><span class="no">5</span><b class="was">sine</b> → <b class="now">shine</b><span class="r">你自己已划改 ✓ making it shine 正确</span></div>
+  <div class="fix up"><span class="no">6</span><b class="was">their chances</b> → <b class="now">one's chances</b><span class="r">their 指代悬空：本段前文没有复数对象，用 one's 与前后 one's future / individuals 呼应</span></div>
+  <div class="fix up"><span class="no">7</span><b class="was">very important</b> → <b class="now">of great importance</b><span class="r">very important 偏口语，书面试卷更稳</span></div>
+  <div class="fix up"><span class="no">8</span><b class="was">Chiefly among those</b> → <b class="now">Chiefly among these benefits</b><span class="r">指代更明确（these benefits = 前句的 immense benefits）</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 纠正版全文 · 逐段对照</div>
+  <div class="c-s">点卡片可遮英文自测 · 橙色 = 填空位</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头 · 亮观点（约 55 词）</div><div class="sam-en"><span class="tb">主题词</span>. In an increasingly interconnected world, <span class="tb">主题词</span> stands out as an essential priority. It is of great necessity for <span class="tb">人群</span> to equip themselves with practical skills and experience. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">（主题词）。在这个联系日益紧密的世界里，主题词脱颖而出，成为一项必不可少的优先事项。对（人群）而言，用实用技能与经验武装自己是大有必要的。支持我观点的理由和具体证据如下。</div></div>
+    <div class="seg"><div class="s-label">② 主体 · 三层理由（约 95 词）</div><div class="sam-en">Primarily, acquiring fundamental knowledge of <span class="tb">主题词</span> yields immense benefits on a personal level, particularly in enhancing one's future prospects and core competencies. Chiefly among these benefits is its significant contribution to boosting employability and career advancement. Moreover, <span class="tb">主题词</span> is instrumental in promoting academic progress and achievement. This not only increases one's chances of securing desirable positions but also lays a solid foundation for long-term professional growth and higher earning potential. Last but not least, the process of engaging with <span class="tb">主题词</span> cultivates greater self-confidence and a sense of personal competence, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，掌握主题词的基础知识会在个人层面带来巨大收益，尤其体现在提升未来前景与核心能力上。其中最主要的一点，是它对提升就业竞争力与职业晋升有显著贡献。此外，主题词有助于促进学业进步与成绩提升。这不仅增加了获得理想职位的机会，也为长期职业发展和更高的收入潜力打下坚实基础。最后同样重要的是，参与主题词的过程能培养更强的自信心和个人胜任感，让人更有把握地应对未来的挑战。</div></div>
+    <div class="seg"><div class="s-label">③ 结尾 · 总结展望（约 50 词）</div><div class="sam-en">In a nutshell, it is clear that <span class="tb">主题词</span> is of great importance for <span class="tb">受益面</span>. Despite the difficulties and challenges we may encounter, we should never give up on it. In the future, we should continue to explore and develop <span class="tb">主题词</span>, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">简而言之，主题词对（受益面）的重要性显而易见。尽管我们可能遇到困难和挑战，但绝不应放弃。未来，我们应继续探索和发展主题词，让它在人类文明的长河中绽放出更加耀眼的光芒。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 九个空怎么填</div>
+  <div class="c-s">主题词 = 题目核心词，全篇反复出现 7 次（钉子效应，不跑题还凑字）</div>
+  <div class="step"><b>空1</b>开头顶格：填主题词单独成句（钩子式开头）</div>
+  <div class="step"><b>空2</b>stands out 前：再填主题词（作主语）</div>
+  <div class="step"><b>空3</b>for ___：人群——学生题 students / 青年题 youngsters / 社会题 citizens 或 residents（后接 themselves；填 us 则接 ourselves）</div>
+  <div class="step"><b>空4</b>knowledge of ___：主题词</div>
+  <div class="step"><b>空5</b>Moreover ___：主题词</div>
+  <div class="step"><b>空6</b>engaging with ___：主题词</div>
+  <div class="step"><b>空7</b>clear that ___：主题词</div>
+  <div class="step"><b>空8</b>for ___（受益面）：personal growth / our society / national development 按题目选</div>
+  <div class="step"><b>空9</b>develop ___：主题词（最后一次，收尾呼应）</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 使用方法</div>
+  <div class="hint"><b>适配题型</b>"X 的重要性 / 为什么 X 很关键"——六级最高频观点论证题。尤其适配个人成长类：终身学习、阅读、运动、实习、合作、时间管理。</div>
+  <div class="hint"><b>考场流程</b>审题圈出主题词 → 开头段换词默写（约 1 分钟）→ 主体段走 Primarily / Moreover / Last but not least 三层 → 结尾展望收束。全篇约 200 词，正好卡六级要求。</div>
+  <div class="hint"><b>先背框架词</b>In an increasingly interconnected world / stands out as an essential priority / It is of great necessity / are as follows / yields immense benefits / is instrumental in / not only…but also / lays a solid foundation / Last but not least / In a nutshell / Despite the difficulties and challenges / the long river of human civilization</div>
+  <div class="swap"><b>⚠️ 社会类话题（环保/科技/文化）替换句：</b>中间段的就业学业两句不适配，换这两句——
+    <span class="en-s">Chiefly among these benefits is its significant contribution to social well-being and sustainable development.</span>
+    <span class="zh-s">其中最主要的是，它对社会福祉与可持续发展有显著贡献。</span>
+    <span class="en-s">This not only enhances the public's awareness of joint responsibility but also fosters a healthier and more harmonious society.</span>
+    <span class="zh-s">这不仅增强了公众共同担责的意识，也促进了一个更健康、更和谐的社会。</span>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="done">识别自你 11/10 手写笔记（3 页）· 纠错 5 处 + 升级建议 3 处<br>六级备考 · 第 67 天 · 距考 32 天</div>
+</div>
+</div>
+</body>
+</html>
