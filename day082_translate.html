@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 82 · 翻译日 · 瑞斯拜押题</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
+  .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
+  .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
+  .words span { font-size:18px; font-weight:700; color:#FF6B00; background:#FFF7ED; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; letter-spacing:.3px; max-width:100%; word-break:break-word; min-width:0; }
+  .words .wl { font-size:17px; font-weight:700; color:#5B6472; background:#F2F3F5; border:1.5px solid #E5E6EB; padding:5px 14px; align-self:center; border-radius:10px; }
+  .exprl { font-size:16px; color:#1F2329; margin-bottom:10px; line-height:1.7; }
+  .exprl b { color:#C2410C; }
+  .ex { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:4px; }
+  .ex .zh { font-size:14px; font-weight:600; }
+  .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
+  .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
+  .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
+  .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
+  .rv .body { display:none; margin-top:8px; }
+  .rv.open .body { display:block; }
+  .rv.open .hint { display:none; }
+  .rv .li { margin:3px 0; }
+  .rv .en { color:#3B82F6; margin-top:8px; font-size:13px; }
+  .rv .cmt { margin-top:8px; font-size:12px; color:#16A34A; }
+  .pairs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px; }
+  .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
+  .pairs b { display:block; font-size:13px; }
+  .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 82 · 翻译日 · 瑞斯拜押题<small>11月25日 · 周三</small></div>
+  <div class="why"><b>瑞斯拜三步法：</b>①找主干（先翻主谓宾）→ ②添枝加叶（补修饰）→ ③检查回读。打法：中文自己动笔翻 → 写不出就逐句对照背下来 → 遮英文自测 → 回微信「翻译已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📦 今日弹药</div>
+  <div class="c-s">词汇块 · 趋势与变化类 下降/减少/降低</div>
+  <div class="lbl">下降/减少/降低</div>
+  <div class="words"><span>decline</span><span>decrease</span><span>drop</span><span>fall</span><span>shrink</span><span>dwindle</span><span>reduce</span><span>lessen</span></div><div class="words"><span>常见搭配：a sharp</span><span>steady</span><span>marked decline in...</span></div><div class="words"><span>被动搭配：has been reduced</span><span>has declined significantly</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 瑞斯拜押题 · 尊老是中华民族的传统美德，…</div>
+  <div class="c-s">2026 下半年热点 · 先自己动笔翻，写不出来再对照背</div>
+  <div class="prompt">尊老是中华民族的传统美德，深深植根于中国人的思想和行为中，是人们普遍遵守的行为规范和社会准则。在当今的中国，这种美德得到广泛传承。社会各界积极营造敬老助老的社会氛围。为老年人提供便利服务已成为社会共识，例如社区专门开设长者食堂，公共场所配置优先座位。政府还出台了一系列政策，为老年人的权益提供有力保障。尊老是社会和谐与发展的重要基石，有助于培育良好的社会氛围，推动整个社会文明进步。</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 点这里遮住英文 · 对照整段回忆</div><div class="seg"><div class="s-label">参考译文（整段对照）</div><div class="sam-en">Respecting the elderly is a traditional virtue of the Chinese nation, deeply rooted in the thoughts and behaviors of the Chinese people. It is a widely observed code of conduct and social norm. In today&#x27;s China, this virtue is being broadly passed down. All sectors of society are actively creating an atmosphere of respecting and assisting the elderly. Providing convenient services for seniors has become a social consensus, such as the establishment of community senior canteens and the allocation of priority seating in public places. Furthermore, the government has introduced a series of policies to provide a strong guarantee for the rights and interests of the elderly. Respecting the aged is an important cornerstone of social harmony and development, contributing to a positive social atmosphere and the civilizational progress of society as a whole.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 必考句型 · 必考点 05</div>
+  <div class="c-s">公式：坐落在 / 位于 / 距…… —— 六级翻译出现率极高，背 3 个例句就够用</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 遮英文自测</div><div class="seg"><div class="sam-zh">乌镇位于浙江省北部，距杭州约80公里。</div><div class="sam-en">Wuzhen is located in northern Zhejiang Province, about 80 kilometers from Hangzhou.</div></div><div class="seg"><div class="sam-zh">中国最大的水电站坐落在长江上。</div><div class="sam-en">China&#x27;s largest hydropower station is located on the Yangtze River.</div></div><div class="seg"><div class="sam-zh">泰山位于山东省中部。</div><div class="sam-en">Mount Tai is located in central Shandong Province.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>technology<em>科技</em></span><span>innovation<em>创新</em></span><span>artificial intelligence<em>人工智能</em></span><span>5G network<em>5G 网络</em></span><span>mobile payment<em>移动支付</em></span><span>high-speed railway<em>高铁</em></span><span>scientific breakthrough<em>科学突破</em></span><span>digital economy<em>数字经济</em></span></div>
+</div>
+
+<div class="foot">
+  <div class="done">翻完/背完回微信「翻译已背」✓ 背下来就是你的</div>
+</div>
+</div>
+</body>
+</html>
