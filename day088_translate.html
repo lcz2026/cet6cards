@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 88 · 翻译日 · 瑞斯拜押题</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
+  .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
+  .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
+  .words span { font-size:18px; font-weight:700; color:#FF6B00; background:#FFF7ED; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; letter-spacing:.3px; max-width:100%; word-break:break-word; min-width:0; }
+  .words .wl { font-size:17px; font-weight:700; color:#5B6472; background:#F2F3F5; border:1.5px solid #E5E6EB; padding:5px 14px; align-self:center; border-radius:10px; }
+  .exprl { font-size:16px; color:#1F2329; margin-bottom:10px; line-height:1.7; }
+  .exprl b { color:#C2410C; }
+  .ex { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:4px; }
+  .ex .zh { font-size:14px; font-weight:600; }
+  .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
+  .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
+  .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
+  .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
+  .rv .body { display:none; margin-top:8px; }
+  .rv.open .body { display:block; }
+  .rv.open .hint { display:none; }
+  .rv .li { margin:3px 0; }
+  .rv .en { color:#3B82F6; margin-top:8px; font-size:13px; }
+  .rv .cmt { margin-top:8px; font-size:12px; color:#16A34A; }
+  .pairs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px; }
+  .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
+  .pairs b { display:block; font-size:13px; }
+  .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 88 · 翻译日 · 瑞斯拜押题<small>12月1日 · 周二</small></div>
+  <div class="why"><b>瑞斯拜三步法：</b>①找主干（先翻主谓宾）→ ②添枝加叶（补修饰）→ ③检查回读。打法：中文自己动笔翻 → 写不出就逐句对照背下来 → 遮英文自测 → 回微信「翻译已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📦 今日弹药</div>
+  <div class="c-s">词汇块 · 趋势与变化类 稳步/持续/不断</div>
+  <div class="lbl">稳步/持续/不断</div>
+  <div class="words"><span>steadily</span><span>continuously</span><span>consistently</span><span>constantly</span><span>sustainably</span></div><div class="words"><span>搭配动词：develop</span><span>progress</span><span>advance</span><span>grow</span><span>improve</span><span>expand</span></div><div class="words"><span>高级句型：has been making steady progress</span><span>is developing steadily</span><span>continues to</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 瑞斯拜押题 · 自古以来，中国的水资源北缺…</div>
+  <div class="c-s">2026 下半年热点 · 先自己动笔翻，写不出来再对照背</div>
+  <div class="prompt">自古以来，中国的水资源北缺南丰，分布极不均衡。为了有效解决北方严重缺水问题，中国政府实施了南水北调工程（the South-to-North Water Diversion Project）。这是一项跨区域配置水资源的宏大水利工程。历经数十年的规划与筹备，工程于 2002 年开工建设，分为东、中、西三条线路，总长 4350 公里，惠及人口将超过 4 亿。自 2014 年通水以来，工程向北方调水累计已超 500 亿立方米，为北方地区的人民提供了可靠的水资源，同时也极大地改善了这一地区的生态环境，促进了经济的可持续健康发展。</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div><div class="seg"><div class="s-label">第 1 句</div><div class="sam-zh">自古以来，中国的水资源北缺南丰，分布极不均衡。</div><div class="sam-en">Since ancient times, China&#x27;s water resources have been scarce in the north and abundant in the south, with an extremely uneven distribution.</div></div><div class="seg"><div class="s-label">第 2 句</div><div class="sam-zh">为了有效解决北方严重缺水问题，中国政府实施了南水北调工程（the South-to-North Water Diversion Project）。</div><div class="sam-en">To effectively address the severe water shortage in the north, the Chinese government has implemented the South-to-North Water Diversion Project, a grand water conservancy project for cross-regional water resource allocation.</div></div><div class="seg"><div class="s-label">第 3 句</div><div class="sam-zh">这是一项跨区域配置水资源的宏大水利工程。</div><div class="sam-en">After decades of planning and preparation, construction of the project began in 2002.</div></div><div class="seg"><div class="s-label">第 4 句</div><div class="sam-zh">历经数十年的规划与筹备，工程于 2002 年开工建设，分为东、中、西三条线路，总长 4350 公里，惠及人口将超过 4 亿。</div><div class="sam-en">It consists of three routes (eastern, middle, and western) with a total length of 4,350 kilometers, benefiting over 400 million people.</div></div><div class="seg"><div class="s-label">第 5 句</div><div class="sam-zh">自 2014 年通水以来，工程向北方调水累计已超 500 亿立方米，为北方地区的人民提供了可靠的水资源，同时也极大地改善了这一地区的生态环境，促进了经济的可持续健康发展。</div><div class="sam-en">Since water diversion started in 2014, the project has delivered more than 50 billion cubic meters of water to the north, providing a reliable water source for people in northern regions, significantly improving the ecological environment there, and promoting sustainable and healthy economic development.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 必考句型 · 必考点 08</div>
+  <div class="c-s">公式：无主句（被动语态） —— 六级翻译出现率极高，背 3 个例句就够用</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 遮英文自测</div><div class="seg"><div class="sam-zh">人们创作了大量诗歌和绘画作品来赞美牡丹。</div><div class="sam-en">A large number of poems and paintings have been created in praise of the peony.</div></div><div class="seg"><div class="sam-zh">人们常用梅花装饰传统绘画和工艺品。</div><div class="sam-en">Plum blossoms are often used to decorate traditional paintings and handicrafts.</div></div><div class="seg"><div class="sam-zh">方言通常被视为地方文化的载体。</div><div class="sam-en">Dialects are generally regarded as carriers of local culture.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>environment<em>环境</em></span><span>pollution<em>污染</em></span><span>protect<em>保护</em></span><span>garbage sorting<em>垃圾分类</em></span><span>new energy<em>新能源</em></span><span>emission<em>排放</em></span><span>sustainable<em>可持续的</em></span><span>low-carbon lifestyle<em>低碳生活方式</em></span></div>
+</div>
+
+<div class="foot">
+  <div class="done">翻完/背完回微信「翻译已背」✓ 背下来就是你的</div>
+</div>
+</div>
+</body>
+</html>
