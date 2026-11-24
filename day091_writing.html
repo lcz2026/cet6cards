@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 91 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 模板套写板块（2026-11-10 用户手写模板） ── */
+  .trecite { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .trecite .s-label { background:#16A34A; }
+  .trecite.hide-en .sam-en { display:none; }
+  .trecite.hide-en .sam-zh { color:#16A34A; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 91 · 写作日<small>12月4日 · 周五</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 43 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay that begins with the sentence &quot;Modern technology is opening new doors for traditional culture.&quot;</div>
+    <div class="zh">当传统文化遇上科技 · 指定首句作文 · 150-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>&lt;b&gt;核心立意：传统如何活在当下——青年是承接者而不是旁观者&lt;/b&gt;</div><div class="hint"><b>2</b>&lt;b&gt;可用素材&lt;/b&gt;：非遗数字化、博物馆数字化、短视频传播手艺、地方戏曲进校园</div><div class="hint"><b>3</b>&lt;b&gt;写法提醒&lt;/b&gt;：选一个具体物件写透——它是什么、它怎么变、为什么值得留</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头段</div><div class="sam-en">Modern technology is opening new doors for traditional culture. Centuries-old skills are no longer locked in museums; they are being digitized, shared and reinvented online. Tradition and technology, once seen as opposites, are now powerful partners.</div><div class="sam-zh">现代科技正在为传统文化打开新的大门。数百年的技艺不再锁在博物馆里；它们正被数字化、被分享、在线上被重新演绎。传统与科技曾被视为对立面，如今成了强大的伙伴。</div></div><div class="seg"><div class="s-label">② 主体段</div><div class="sam-en">First and foremost, digital technology preserves intangible cultural heritage before it fades: high-definition records and virtual exhibitions keep ancient crafts alive. What&#x27;s more, short videos and livestreams bring traditional arts to millions of young viewers, turning passive audiences into active inheritors. Last but not least, when traditional patterns enter modern design and games, culture gains new life and even new markets.</div><div class="sam-zh">首先，数字技术在非物质文化遗产消逝前将其保存下来：高清记录和虚拟展览让古老技艺保持生命力。其次，短视频和直播把传统艺术带到数百万年轻观众面前，把被动的观众变成主动的传承者。最后，当传统纹样进入现代设计和游戏，文化便获得了新的生命力，甚至打开了新的市场。</div></div><div class="seg"><div class="s-label">③ 结尾段</div><div class="sam-en">In conclusion, technology does not dilute tradition; it amplifies it. As young people, we should act as inheritors rather than bystanders, using the tools of our era to keep the old culture young.</div><div class="sam-zh">总之，技术不会稀释传统，反而会放大传统。作为年轻人，我们应当做传承者而不是旁观者，用这个时代的工具让古老文化保持年轻。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🧩 你的模板 · 套写全文</div>
+  <div class="c-s">用你 11/10 手写模板套本题目 · 开头句=题干句照抄 · 骨架词与模板一致</div>
+  <div class="trecite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 模板开头 · 首句照抄+亮观点</div><div class="sam-en">Modern technology is opening new doors for traditional culture. In an increasingly interconnected world, the creative revival of traditional culture stands out as an essential priority. It is of great necessity for students and young people to pass on traditional culture with the tools of our era. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">当传统文化遇上科技。（首句照抄）在这个联系日益紧密的世界里，传统文化的创新复兴脱颖而出，成为一项必不可少的优先事项。对学生和年轻人来说，用时代的工具传承传统文化是大有必要的。支持我观点的理由和具体证据如下。</div></div><div class="seg"><div class="s-label">② 模板主体 · 三层理由</div><div class="sam-en">Primarily, preserving intangible cultural heritage with digital technology yields immense benefits on a personal level, particularly in keeping ancient crafts alive and accessible. Chiefly among these benefits is the fresh energy young creators bring to old arts. Moreover, the creative revival of traditional culture is instrumental in promoting cultural confidence and creative industries. This not only revives ancient skills but also opens new markets for cultural products. Last but not least, telling old stories in new ways wins the hearts of the young generation, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，用数字技术保护非物质文化遗产会在个人层面带来巨大收益，尤其体现在让古老技艺保持生命力、触手可及上。其中最主要的一点，是年轻创作者为古老艺术注入的新活力。此外，传统文化的创新复兴有助于促进文化自信与创意产业。这不仅让古老技艺重焕生机，还为文化产品打开新市场。最后同样重要的是，用新方式讲老故事能赢得年轻一代的心，让人更有把握地应对未来的挑战。</div></div><div class="seg"><div class="s-label">③ 模板结尾 · 总结展望</div><div class="sam-en">In a nutshell, it is clear that the creative revival of traditional culture is of great importance. Despite the difficulties and challenges we may encounter, we should never give up on passing on our cultural roots. In the future, we should continue to combine tradition with modern innovation, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">总之，很明显，传统文化的创新复兴至关重要。尽管我们可能遇到困难和挑战，但永远不应放弃传承我们的文化根脉。未来，我们应继续把传统与现代创新结合，让它在中国文明的长河中更加闪亮。</div></div>
+  </div>
+  <div class="ammo">🧩 考场上开头句照抄题目给的；其余骨架词全是模板原词——背熟一个模板，题题能套。每题的套写文都配好了，背哪题看哪篇。</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>tradition<em>传统</em></span><span>technology<em>科技</em></span><span>museum<em>博物馆</em></span><span>craft<em>手艺</em></span><span>design<em>设计</em></span><span>audience<em>观众</em></span><span>creativity<em>创造力</em></span><span>heritage<em>遗产</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>intangible cultural heritage</b><span class="zh">非物质文化遗产</span></div><div class="kw-item"><b>digital preservation</b><span class="zh">数字化保护</span></div><div class="kw-item"><b>inheritance</b><span class="zh">n. 传承</span></div><div class="kw-item"><b>cultural confidence</b><span class="zh">文化自信</span></div><div class="kw-item"><b>craftsmanship</b><span class="zh">n. 工匠精神</span></div><div class="kw-item"><b>virtual exhibition</b><span class="zh">虚拟展览</span></div><div class="kw-item"><b>revival</b><span class="zh">n. 复兴</span></div><div class="kw-item"><b>bystander</b><span class="zh">n. 旁观者</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>

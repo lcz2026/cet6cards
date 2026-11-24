@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 95 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 模板套写板块（2026-11-10 用户手写模板） ── */
+  .trecite { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .trecite .s-label { background:#16A34A; }
+  .trecite.hide-en .sam-en { display:none; }
+  .trecite.hide-en .sam-zh { color:#16A34A; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 95 · 写作日<small>12月8日 · 周二</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 45 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay that begins with the sentence &quot;As artificial intelligence grows more powerful, academic integrity faces a new test.&quot;</div>
+    <div class="zh">人工智能与学术诚信 · 指定首句作文 · 150-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>&lt;b&gt;核心立意：AI 代写让抄袭界限模糊，诚信是底线&lt;/b&gt;</div><div class="hint"><b>2</b>&lt;b&gt;论证线&lt;/b&gt;：为何重要（信任/能力）→ 滥用后果 → 正确用法</div><div class="hint"><b>3</b>&lt;b&gt;高分表达&lt;/b&gt;：academic integrity / plagiarism / stifle critical thinking</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头段</div><div class="sam-en">As artificial intelligence grows more powerful, academic integrity faces a new test. When an essay can be generated in seconds, the line between learning and copying becomes blurred. In my view, how we use AI defines who we really are as learners.</div><div class="sam-zh">随着人工智能日益强大，学术诚信面临新的考验。当一篇文章能在几秒钟内生成，学习与抄袭的界限就变得模糊。在我看来，我们如何使用 AI，决定了我们作为学习者真正的样子。</div></div><div class="seg"><div class="s-label">② 主体段</div><div class="sam-en">First and foremost, honesty is the foundation of education: degrees and grades lose their meaning if they are not earned by real work. What&#x27;s more, over-reliance on AI stifles critical thinking, leaving students with polished texts but empty minds. However, using AI properly is not cheating—asking it for feedback or explanations deepens our understanding, as long as the final work remains our own.</div><div class="sam-zh">首先，诚实是教育的基石：如果学位和成绩不是通过真实的努力获得的，它们就失去了意义。其次，过度依赖 AI 会抑制批判性思维，让学生只剩华丽的文本却没有充实的头脑。不过，正确使用 AI 并不是作弊——只要最终成果出自自己之手，让 AI 提供反馈或讲解反而能加深理解。</div></div><div class="seg"><div class="s-label">③ 结尾段</div><div class="sam-en">In conclusion, technology changes our tools, but it should never change our principles. Let AI assist our thinking, not replace it, so that integrity remains the true mark of every learner.</div><div class="sam-zh">总之，技术改变的是我们的工具，但永远不该改变我们的原则。让 AI 辅助我们的思考，而不是替代它，诚信才会永远是每个学习者真正的标志。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🧩 你的模板 · 套写全文</div>
+  <div class="c-s">用你 11/10 手写模板套本题目 · 开头句=题干句照抄 · 骨架词与模板一致</div>
+  <div class="trecite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 模板开头 · 首句照抄+亮观点</div><div class="sam-en">As artificial intelligence grows more powerful, academic integrity faces a new test. In an increasingly interconnected world, academic integrity in the AI era stands out as an essential priority. It is of great necessity for students and young people to let AI assist our thinking instead of replacing it. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">人工智能与学术诚信。（首句照抄）在这个联系日益紧密的世界里，AI 时代的学术诚信脱颖而出，成为一项必不可少的优先事项。对学生和年轻人来说，让 AI 辅助思考而不是替代思考是大有必要的。支持我观点的理由和具体证据如下。</div></div><div class="seg"><div class="s-label">② 模板主体 · 三层理由</div><div class="sam-en">Primarily, staying honest in our academic work yields immense benefits on a personal level, particularly in building real competence and mutual trust. Chiefly among these benefits is the value of work that is truly our own. Moreover, academic integrity in the AI era is instrumental in promoting critical thinking and original creation. This not only protects the fairness of education but also sharpens our own minds. Last but not least, using AI for feedback and explanation deepens real understanding, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，在学术工作中保持诚实会在个人层面带来巨大收益，尤其体现在建立真实能力与彼此信任上。其中最主要的一点，是真正出自自己之手的成果的价值。此外，AI 时代的学术诚信有助于促进批判性思维与原创精神。这不仅维护教育的公平，还磨砺我们自己的头脑。最后同样重要的是，用 AI 获取反馈与讲解能加深真正的理解，让人更有把握地应对未来的挑战。</div></div><div class="seg"><div class="s-label">③ 模板结尾 · 总结展望</div><div class="sam-en">In a nutshell, it is clear that academic integrity in the AI era is of great importance. Despite the difficulties and challenges we may encounter, we should never give up on honest work. In the future, we should continue to use AI properly and keep our principles firm, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">总之，很明显，AI 时代的学术诚信至关重要。尽管我们可能遇到困难和挑战，但永远不应放弃诚实的努力。未来，我们应继续正确使用 AI 并坚守原则，让它在中国文明的长河中更加闪亮。</div></div>
+  </div>
+  <div class="ammo">🧩 考场上开头句照抄题目给的；其余骨架词全是模板原词——背熟一个模板，题题能套。每题的套写文都配好了，背哪题看哪篇。</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>artificial intelligence<em>人工智能</em></span><span>essay<em>文章</em></span><span>honesty<em>诚实</em></span><span>cheating<em>作弊</em></span><span>feedback<em>反馈</em></span><span>understanding<em>理解</em></span><span>trust<em>信任</em></span><span>principle<em>原则</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>academic integrity</b><span class="zh">学术诚信</span></div><div class="kw-item"><b>plagiarism</b><span class="zh">n. 抄袭</span></div><div class="kw-item"><b>original work</b><span class="zh">原创作品</span></div><div class="kw-item"><b>stifle critical thinking</b><span class="zh">抑制批判性思维</span></div><div class="kw-item"><b>over-reliance</b><span class="zh">过度依赖</span></div><div class="kw-item"><b>misuse</b><span class="zh">v./n. 滥用</span></div><div class="kw-item"><b>principle</b><span class="zh">n. 原则</span></div><div class="kw-item"><b>blurred</b><span class="zh">adj. 模糊的</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>

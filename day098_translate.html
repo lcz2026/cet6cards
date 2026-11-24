@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 98 · 翻译日 · 押题</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
+  .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
+  .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
+  .words span { font-size:18px; font-weight:700; color:#FF6B00; background:#FFF7ED; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; letter-spacing:.3px; max-width:100%; word-break:break-word; min-width:0; }
+  .words .wl { font-size:17px; font-weight:700; color:#5B6472; background:#F2F3F5; border:1.5px solid #E5E6EB; padding:5px 14px; align-self:center; border-radius:10px; }
+  .exprl { font-size:16px; color:#1F2329; margin-bottom:10px; line-height:1.7; }
+  .exprl b { color:#C2410C; }
+  .ex { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:4px; }
+  .ex .zh { font-size:14px; font-weight:600; }
+  .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
+  .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
+  .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
+  .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
+  .rv .body { display:none; margin-top:8px; }
+  .rv.open .body { display:block; }
+  .rv.open .hint { display:none; }
+  .rv .li { margin:3px 0; }
+  .rv .en { color:#3B82F6; margin-top:8px; font-size:13px; }
+  .rv .cmt { margin-top:8px; font-size:12px; color:#16A34A; }
+  .pairs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px; }
+  .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
+  .pairs b { display:block; font-size:13px; }
+  .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 98 · 翻译日 · 押题<small>12月11日 · 周五</small></div>
+  <div class="why"><b>瑞斯拜三步法：</b>①找主干（先翻主谓宾）→ ②添枝加叶（补修饰）→ ③检查回读。打法：中文自己动笔翻 → 写不出就逐句对照背下来 → 遮英文自测 → 回微信「翻译已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📦 今日弹药</div>
+  <div class="c-s">词汇块 · 态度与主张类 注重（在行动上）/ 强调</div>
+  <div class="lbl">注重（在行动上）/ 强调</div>
+  <div class="words"><span>place</span><span>lay emphasis on</span><span>stress</span><span>focus on</span><span>give priority to</span><span>highlight</span></div><div class="words"><span>常见搭配：sustainable development</span><span>talent cultivation</span><span>efficiency</span><span>quality</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 瑞斯拜押题 · 遨游太空历来是中华民族的梦想</div>
+  <div class="c-s">2026 下半年热点 · 先自己动笔翻，写不出来再对照背</div>
+  <div class="prompt">遨游太空历来是中华民族的梦想。2003 年，神舟五号飞船发射成功，杨利伟成为第一个飞入太空的中国宇航员。2008 年，神舟七号升空，翟志刚成为中国历史上首位进行太空行走的宇航员。近年来，中国航天进入创新发晨“快车道”,太空基础设施建设稳步推进，中国空间站于 2022 年全面建成。中国航天事业的迅速发展在中华民族的历史上写下了辉煌一页，也为人类文明进步做出了巨大贡献。未来，中国探索太空的脚步将迈得更稳、更远。</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 点这里遮住英文 · 对照整段回忆</div><div class="seg"><div class="s-label">参考译文（整段对照）</div><div class="sam-en">Exploring outer space has always been a cherished dream of the Chinese nation. In 2003, the successful launch of the Shenzhou 5 spacecraft marked a historic moment as Yang Liwei became China&#x27;s first astronaut to venture into space. In 2008, the Shenzhou 7 mission saw Zhai Zhigang become the first Chinese astronaut to perform a spacewalk. In recent years, China’s space exploration has entered a phase of rapid innovation and development, with steady progress in building space infrastructure. The construction of the Chinese Space Station was fully completed in 2022. The rapid advancement of China&#x27;s space industry has written a glorious chapter in the history of the Chinese nation and made significant contributions to the progress of human civilization. In the future, China’s journey to explore the cosmos will be more stable and far-reaching.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 必考句型 · 必考点 13</div>
+  <div class="c-s">公式：发挥重要作用 / 做出贡献 —— 六级翻译出现率极高，背 3 个例句就够用</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 遮英文自测</div><div class="seg"><div class="sam-zh">餐桌礼仪在维系家庭和社会关系方面发挥着重要作用。</div><div class="sam-en">Dining etiquette plays an important role in maintaining family and social relationships.</div></div><div class="seg"><div class="sam-zh">农历在中国人的日常生活中发挥着重要作用。</div><div class="sam-en">The lunar calendar plays an important role in the daily lives of Chinese people.</div></div><div class="seg"><div class="sam-zh">京杭大运河长期以来在促进南北经济文化交流方面发挥着重要作用。</div><div class="sam-en">The Beijing-Hangzhou Grand Canal has long played an important role in promoting economic and cultural exchanges between northern and southern China.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>civilization<em>n. 文明</em></span><span>historical site<em>历史遗址</em></span><span>cultural relic<em>文物</em></span><span>dynasty<em>n. 王朝</em></span><span>archaeological discovery<em>考古发现</em></span><span>cultural legacy<em>文化遗产</em></span><span>ancient<em>adj. 古代的</em></span><span>pass down<em>传承</em></span></div>
+</div>
+
+<div class="foot">
+  <div class="done">翻完/背完回微信「翻译已背」✓ 背下来就是你的</div>
+</div>
+</div>
+</body>
+</html>
