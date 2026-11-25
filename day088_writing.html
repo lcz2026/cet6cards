@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 88 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 模板套写板块（2026-11-10 用户手写模板） ── */
+  .trecite { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .trecite .s-label { background:#16A34A; }
+  .trecite.hide-en .sam-en { display:none; }
+  .trecite.hide-en .sam-zh { color:#16A34A; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 88 · 写作日<small>12月1日 · 周二</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 41 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay that begins with the sentence &quot;Today there is a growing awareness that environmental protection needs to be given as much attention as economic growth.&quot;</div>
+    <div class="zh">经济发展与环境保护 · 指定首句作文 · 150-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>&lt;b&gt;核心立意：可持续发展——绿山青山也是金山银山&lt;/b&gt;</div><div class="hint"><b>2</b>&lt;b&gt;分层论证&lt;/b&gt;：个人低碳生活 / 企业绿色生产 / 生态文明建设</div><div class="hint"><b>3</b>&lt;b&gt;术语写准&lt;/b&gt;：carbon neutrality / renewable energy / circular economy</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头段</div><div class="sam-en">Economic development and environmental protection are not enemies but partners. In the past, many countries grew rich at the cost of clear skies and clean rivers. Today, sustainable development shows us a wiser path.</div><div class="sam-zh">经济发展与环境保护不是敌人，而是伙伴。过去，许多国家以失去蓝天清河为代价致富。今天，可持续发展为我们指明了一条更明智的道路。</div></div><div class="seg"><div class="s-label">② 主体段</div><div class="sam-en">First and foremost, green development protects the very resources that the economy depends on, such as water, land and energy. What&#x27;s more, new industries—renewable energy, electric vehicles and the circular economy—are creating millions of jobs while reducing pollution. Last but not least, as individuals, we can also contribute through low-carbon lifestyles: taking public transport, saving energy and sorting waste.</div><div class="sam-zh">首先，绿色发展保护了经济所依赖的根本资源，如水、土地和能源。其次，新能源、电动汽车和循环经济等新产业在减少污染的同时创造了数百万就业岗位。最后，作为个人，我们也可以通过低碳生活方式作出贡献：乘坐公共交通、节约能源、垃圾分类。</div></div><div class="seg"><div class="s-label">③ 结尾段</div><div class="sam-en">In conclusion, protecting the environment is not a brake on development but its engine. Only by walking the green path can we leave both prosperity and beauty to future generations.</div><div class="sam-zh">总之，保护环境不是发展的刹车，而是发展的引擎。只有走绿色之路，我们才能把繁荣与美丽一并留给子孙后代。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🧩 你的模板 · 套写全文</div>
+  <div class="c-s">用你 11/10 手写模板套本题目 · 开头句=题干句照抄 · 骨架词与模板一致</div>
+  <div class="trecite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 模板开头 · 首句照抄+亮观点</div><div class="sam-en">Today there is a growing awareness that environmental protection needs to be given as much attention as economic growth. In an increasingly interconnected world, green development stands out as an essential priority. It is of great necessity for students and young people to equip themselves with practical skills and experience. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">经济发展与环境保护。（首句照抄）在这个联系日益紧密的世界里，绿色发展脱颖而出，成为一项必不可少的优先事项。学生和年轻人有必要让自己掌握实用技能与经验。支持我观点的理由和具体证据如下。</div></div><div class="seg"><div class="s-label">② 模板主体 · 三层理由</div><div class="sam-en">Primarily, acquiring fundamental knowledge of green development yields immense benefits on a personal level, particularly in enhancing one&#x27;s future prospects and core competencies. Chiefly among these benefits is its significant contribution to reducing pollution at its source. Moreover, green development is instrumental in promoting a sustainable economy. This not only increases one&#x27;s chances of securing desirable positions but also lays a solid foundation for long-term professional growth and higher earning potential. Last but not least, the process of engaging with green development cultivates greater self-confidence and a sense of personal competence, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，掌握绿色发展的基础知识会在个人层面带来巨大收益，尤其体现在提升个人前景与核心能力上。其中最主要的一点，是它对从源头减少污染有显著贡献。此外，绿色发展有助于促进可持续的经济。这不仅增加了获得理想职位的机会，也为长期职业发展和更高的收入潜力打下坚实基础。最后同样重要的是，参与绿色发展的过程能培养更强的自信心和个人胜任感，让人更有把握地应对未来的挑战。</div></div><div class="seg"><div class="s-label">③ 模板结尾 · 总结展望</div><div class="sam-en">In a nutshell, it is clear that green development is of great importance for students and the whole society. Despite the difficulties and challenges we may encounter, we should never give up on it. In the future, we should continue to explore and develop green development, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">简而言之，绿色发展对学生与整个社会的重要性显而易见。尽管我们可能遇到困难和挑战，但绝不应放弃。未来，我们应继续探索和发展绿色发展，让它在人类文明的长河中绽放出更加耀眼的光芒。</div></div>
+  </div>
+  <div class="ammo">🧩 考场上开头句照抄题目给的；其余骨架词全是模板原词——背熟一个模板，题题能套。每题的套写文都配好了，背哪题看哪篇。</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>environment<em>环境</em></span><span>pollution<em>污染</em></span><span>electric vehicle<em>电动汽车</em></span><span>public transport<em>公共交通</em></span><span>resource<em>资源</em></span><span>ecology<em>生态</em></span><span>prosperity<em>繁荣</em></span><span>generation<em>一代人</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>sustainable development</b><span class="zh">可持续发展</span></div><div class="kw-item"><b>carbon neutrality</b><span class="zh">碳中和</span></div><div class="kw-item"><b>renewable energy</b><span class="zh">可再生能源</span></div><div class="kw-item"><b>circular economy</b><span class="zh">循环经济</span></div><div class="kw-item"><b>low-carbon lifestyle</b><span class="zh">低碳生活方式</span></div><div class="kw-item"><b>energy saving</b><span class="zh">节能</span></div><div class="kw-item"><b>waste sorting</b><span class="zh">垃圾分类</span></div><div class="kw-item"><b>green path</b><span class="zh">绿色之路</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>

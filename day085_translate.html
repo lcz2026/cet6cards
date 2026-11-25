@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 85 · 翻译日 · 押题</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
+  .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
+  .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
+  .words span { font-size:18px; font-weight:700; color:#FF6B00; background:#FFF7ED; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; letter-spacing:.3px; max-width:100%; word-break:break-word; min-width:0; }
+  .words .wl { font-size:17px; font-weight:700; color:#5B6472; background:#F2F3F5; border:1.5px solid #E5E6EB; padding:5px 14px; align-self:center; border-radius:10px; }
+  .exprl { font-size:16px; color:#1F2329; margin-bottom:10px; line-height:1.7; }
+  .exprl b { color:#C2410C; }
+  .ex { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:4px; }
+  .ex .zh { font-size:14px; font-weight:600; }
+  .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
+  .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
+  .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
+  .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
+  .rv .body { display:none; margin-top:8px; }
+  .rv.open .body { display:block; }
+  .rv.open .hint { display:none; }
+  .rv .li { margin:3px 0; }
+  .rv .en { color:#3B82F6; margin-top:8px; font-size:13px; }
+  .rv .cmt { margin-top:8px; font-size:12px; color:#16A34A; }
+  .pairs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px; }
+  .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
+  .pairs b { display:block; font-size:13px; }
+  .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 85 · 翻译日 · 押题<small>11月28日 · 周六</small></div>
+  <div class="why"><b>瑞斯拜三步法：</b>①找主干（先翻主谓宾）→ ②添枝加叶（补修饰）→ ③检查回读。打法：中文自己动笔翻 → 写不出就逐句对照背下来 → 遮英文自测 → 回微信「翻译已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📦 今日弹药</div>
+  <div class="c-s">词汇块 · 趋势与变化类 加快/提速/加速发展</div>
+  <div class="lbl">加快/提速/加速发展</div>
+  <div class="words"><span>accelerate</span><span>speed up</span><span>quicken</span><span>step up</span><span>intensify</span></div><div class="words"><span class="wl">名词搭配</span><span>acceleration</span><span>pace</span><span>momentum</span></div><div class="words"><span>常用结构：at an accelerating pace</span><span>gain momentum</span><span>gather pace</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 瑞斯拜12月版 · 近年来，人形机器人已成为全…</div>
+  <div class="c-s">2026 下半年热点 · 先自己动笔翻，写不出来再对照背</div>
+  <div class="prompt">近年来，人形机器人已成为全球科技竞争的新焦点。与普通工业机器人不同，人形机器人拥有与人类相似的外形和运动能力，能够适应为人类设计的各种环境和工具。在中国，人形机器人正加速从实验室走向实际应用，在养老陪护、危险环境作业、教育展示等场景中展现出巨大潜力。人形机器人的核心挑战在于运动控制、感知交互与能源续航等技术的深度融合。随着人工智能和高端制造技术的不断突破，人形机器人有望成为未来智能社会的重要组成部分，深刻改变人们的生产生活方式。</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div><div class="seg"><div class="s-label">第 1 句</div><div class="sam-zh">近年来，人形机器人已成为全球科技竞争的新焦点。</div><div class="sam-en">In recent years, humanoid robots have become a new focus of global technological competition.</div></div><div class="seg"><div class="s-label">第 2 句</div><div class="sam-zh">与普通工业机器人不同，人形机器人拥有与人类相似的外形和运动能力，能够适应为人类设计的各种环境和工具。</div><div class="sam-en">Unlike ordinary industrial robots, humanoid robots have a human-like appearance and movement capability, enabling them to adapt to the various environments and tools designed for humans.</div></div><div class="seg"><div class="s-label">第 3 句</div><div class="sam-zh">在中国，人形机器人正加速从实验室走向实际应用，在养老陪护、危险环境作业、教育展示等场景中展现出巨大潜力。</div><div class="sam-en">In China, humanoid robots are speeding up their transition from laboratories to practical applications, showing enormous potential in scenarios such as elderly care, operations in hazardous environments and educational exhibitions.</div></div><div class="seg"><div class="s-label">第 4 句</div><div class="sam-zh">人形机器人的核心挑战在于运动控制、感知交互与能源续航等技术的深度融合。</div><div class="sam-en">The core challenge for humanoid robots lies in the deep integration of technologies such as motion control, perception and interaction, and energy endurance.</div></div><div class="seg"><div class="s-label">第 5 句</div><div class="sam-zh">随着人工智能和高端制造技术的不断突破，人形机器人有望成为未来智能社会的重要组成部分，深刻改变人们的生产生活方式。</div><div class="sam-en">With continuous breakthroughs in artificial intelligence and high-end manufacturing, humanoid robots are expected to become an important part of the future intelligent society and to profoundly change the way people produce and live.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 亮点表达（本题专属·背这 5 个就够）</div>
+  <div class="c-s">题目括注的英文（如 new quality productive forces）必须原样用上，不要自己换说法</div>
+  <div class="ov-item"><div class="ov-en">humanoid robots</div><div class="ov-zh">人形机器人，固定说法</div></div><div class="ov-item"><div class="ov-en">hazardous environments</div><div class="ov-zh">危险环境，比 dangerous 更书面</div></div><div class="ov-item"><div class="ov-en">energy endurance</div><div class="ov-zh">能源续航，不用 battery life（后者只指电池）</div></div><div class="ov-item"><div class="ov-en">deep integration</div><div class="ov-zh">深度融合</div></div><div class="ov-item"><div class="ov-en">be expected to</div><div class="ov-zh">有望</div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 必考句型 · 必考点 06</div>
+  <div class="c-s">公式：被誉为 / 被称为 / 以……闻名 —— 六级翻译出现率极高，背 3 个例句就够用</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 遮英文自测</div><div class="seg"><div class="sam-zh">袁隆平被誉为“杂交水稻之父”。</div><div class="sam-en">Yuan Longping is known as the Father of Hybrid Rice.</div></div><div class="seg"><div class="sam-zh">青藏高原被誉为“世界屋脊”。</div><div class="sam-en">The Qinghai-Tibet Plateau is known as the Roof of the World.</div></div><div class="seg"><div class="sam-zh">延安被誉为“中国革命博物馆城”。</div><div class="sam-en">Yan&#x27;an is known as a museum city of the Chinese revolution.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>Peking Opera<em>京剧</em></span><span>culture<em>文化</em></span><span>traditional<em>传统的</em></span><span>symbol<em>象征</em></span><span>inherit<em>传承</em></span><span>cultural heritage<em>文化遗产</em></span><span>spread<em>传播</em></span><span>art<em>艺术</em></span></div>
+</div>
+
+<div class="foot">
+  <div class="done">翻完/背完回微信「翻译已背」✓ 背下来就是你的</div>
+</div>
+</div>
+</body>
+</html>

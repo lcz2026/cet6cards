@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 84 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 模板套写板块（2026-11-10 用户手写模板） ── */
+  .trecite { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .trecite .s-label { background:#16A34A; }
+  .trecite.hide-en .sam-en { display:none; }
+  .trecite.hide-en .sam-zh { color:#16A34A; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 84 · 写作日<small>11月27日 · 周五</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 39 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay that begins with the sentence &quot;As short video is becoming increasingly popular, there is a growing awareness of the blessing and curse of it.&quot;</div>
+    <div class="zh">短视频：一把双刃剑 · 指定首句作文 · 150-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>&lt;b&gt;核心立意：双刃剑，效果取决于自律&lt;/b&gt;——不一边倒</div><div class="hint"><b>2</b>&lt;b&gt;利&lt;/b&gt;：降低知识获取门槛；助力小微经营、创意出口</div><div class="hint"><b>3</b>&lt;b&gt;弊&lt;/b&gt;：成瘾性、无休止刷屏、削弱注意力时长</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头段</div><div class="sam-en">Short videos have swept into every corner of our daily life. They bring laughter and knowledge within a tap of the screen. Yet whether they serve us or consume us depends on one key factor: our self-discipline.</div><div class="sam-zh">短视频已经席卷了我们日常生活的每个角落。只需轻点屏幕，它们就能带来欢笑和知识。然而，它们究竟是服务于我们还是消耗我们，取决于一个关键因素：我们的自律。</div></div><div class="seg"><div class="s-label">② 主体段</div><div class="sam-en">On the one hand, short videos lower the threshold of knowledge: people can learn cooking, science and languages within minutes, and small businesses can reach customers through creative short clips. On the other hand, their addictive nature leads to endless scrolling, which wastes fragmented time and gradually weakens our attention spans.</div><div class="sam-zh">一方面，短视频降低了获取知识的门槛：人们可以在几分钟内学会烹饪、科学和语言知识，小微企业也能通过有创意的短视频触达顾客。另一方面，短视频的成瘾性导致无休止地刷屏，浪费了碎片时间，也在逐渐削弱我们的注意力。</div></div><div class="seg"><div class="s-label">③ 结尾段</div><div class="sam-en">In conclusion, short videos are a double-edged sword. With clear time limits and purposeful watching, we can enjoy their benefits while avoiding their traps; without self-discipline, however, we may become prisoners of the screen.</div><div class="sam-zh">总之，短视频是一把双刃剑。设定明确的时间限制、带着目的去观看，我们就能享受它的益处同时避开陷阱；但若没有自律，我们就可能沦为屏幕的囚徒。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🧩 你的模板 · 套写全文</div>
+  <div class="c-s">用你 11/10 手写模板套本题目 · 开头句=题干句照抄 · 骨架词与模板一致</div>
+  <div class="trecite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 模板开头 · 首句照抄+亮观点</div><div class="sam-en">As short video is becoming increasingly popular, there is a growing awareness of the blessing and curse of it. In an increasingly interconnected world, short video stands out as an essential priority. It is of great necessity for students and young people to equip themselves with practical skills and experience. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">短视频：一把双刃剑。（首句照抄）在这个联系日益紧密的世界里，短视频脱颖而出，成为一项必不可少的优先事项。学生和年轻人有必要让自己掌握实用技能与经验。支持我观点的理由和具体证据如下。</div></div><div class="seg"><div class="s-label">② 模板主体 · 三层理由</div><div class="sam-en">Primarily, acquiring fundamental knowledge of short video yields immense benefits on a personal level, particularly in enhancing one&#x27;s future prospects and core competencies. Chiefly among these benefits is its significant contribution to unwinding after a busy day. Moreover, short video is instrumental in promoting clear judgment and self-control. This not only increases one&#x27;s chances of securing desirable positions but also lays a solid foundation for long-term professional growth and higher earning potential. Last but not least, the process of engaging with short video cultivates greater self-confidence and a sense of personal competence, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，掌握短视频的基础知识会在个人层面带来巨大收益，尤其体现在提升个人前景与核心能力上。其中最主要的一点，是它对忙碌一天后的放松有显著贡献。此外，短视频有助于促进清醒判断与自控力。这不仅增加了获得理想职位的机会，也为长期职业发展和更高的收入潜力打下坚实基础。最后同样重要的是，参与短视频的过程能培养更强的自信心和个人胜任感，让人更有把握地应对未来的挑战。</div></div><div class="seg"><div class="s-label">③ 模板结尾 · 总结展望</div><div class="sam-en">In a nutshell, it is clear that short video is of great importance for students and the whole society. Despite the difficulties and challenges we may encounter, we should never give up on it. In the future, we should continue to explore and develop short video, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">简而言之，短视频对学生与整个社会的重要性显而易见。尽管我们可能遇到困难和挑战，但绝不应放弃。未来，我们应继续探索和发展短视频，让它在人类文明的长河中绽放出更加耀眼的光芒。</div></div>
+  </div>
+  <div class="ammo">🧩 考场上开头句照抄题目给的；其余骨架词全是模板原词——背熟一个模板，题题能套。每题的套写文都配好了，背哪题看哪篇。</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>short video<em>短视频</em></span><span>threshold<em>门槛</em></span><span>screen time<em>屏幕时间</em></span><span>scroll<em>刷屏</em></span><span>concentration<em>专注力</em></span><span>creator<em>创作者</em></span><span>trap<em>陷阱</em></span><span>balance<em>平衡</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>addictive nature</b><span class="zh">成瘾性</span></div><div class="kw-item"><b>endless scrolling</b><span class="zh">无休止刷屏</span></div><div class="kw-item"><b>attention span</b><span class="zh">注意力时长</span></div><div class="kw-item"><b>creative outlet</b><span class="zh">创意出口</span></div><div class="kw-item"><b>self-discipline</b><span class="zh">自律</span></div><div class="kw-item"><b>fragmented time</b><span class="zh">碎片时间</span></div><div class="kw-item"><b>knowledge access</b><span class="zh">知识获取</span></div><div class="kw-item"><b>double-edged sword</b><span class="zh">双刃剑</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>

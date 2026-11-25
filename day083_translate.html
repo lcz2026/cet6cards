@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 83 · 翻译日 · 押题</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .lbl { display:inline-block; font-size:16px; font-weight:700; color:#FF6B00; background:#FFF3E8; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; margin:0 6px 12px 0; }
+  .desc { font-size:14px; color:#3B4150; margin-bottom:12px; }
+  .words { display:flex; flex-wrap:wrap; gap:8px 8px; margin-bottom:12px; max-width:100%; }
+  .words span { font-size:18px; font-weight:700; color:#FF6B00; background:#FFF7ED; border:1.5px solid #FFD9B8; border-radius:10px; padding:5px 14px; letter-spacing:.3px; max-width:100%; word-break:break-word; min-width:0; }
+  .words .wl { font-size:17px; font-weight:700; color:#5B6472; background:#F2F3F5; border:1.5px solid #E5E6EB; padding:5px 14px; align-self:center; border-radius:10px; }
+  .exprl { font-size:16px; color:#1F2329; margin-bottom:10px; line-height:1.7; }
+  .exprl b { color:#C2410C; }
+  .ex { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:4px; }
+  .ex .zh { font-size:14px; font-weight:600; }
+  .ex .en { font-size:13px; color:#3B82F6; margin-top:6px; }
+  .ex .tag { display:inline-block; font-size:11px; color:#16A34A; background:#F0FDF4; border-radius:6px; padding:1px 8px; margin-top:8px; }
+  .prompt { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; font-size:16px; font-weight:600; line-height:1.9; }
+  .rv { background:#F6F6F8; border-radius:12px; padding:12px 14px; margin-top:12px; font-size:13px; color:#5A6070; }
+  .rv .hint { text-align:center; font-size:12px; color:#8A8F99; }
+  .rv .body { display:none; margin-top:8px; }
+  .rv.open .body { display:block; }
+  .rv.open .hint { display:none; }
+  .rv .li { margin:3px 0; }
+  .rv .en { color:#3B82F6; margin-top:8px; font-size:13px; }
+  .rv .cmt { margin-top:8px; font-size:12px; color:#16A34A; }
+  .pairs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px; }
+  .pairs > div { background:#F6F6F8; border-radius:10px; padding:8px 10px; }
+  .pairs b { display:block; font-size:13px; }
+  .pairs small { font-size:11px; color:#8A8F99; }
+  /* ── v2 背诵译文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:12px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.9; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.8; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 83 · 翻译日 · 押题<small>11月26日 · 周四</small></div>
+  <div class="why"><b>瑞斯拜三步法：</b>①找主干（先翻主谓宾）→ ②添枝加叶（补修饰）→ ③检查回读。打法：中文自己动笔翻 → 写不出就逐句对照背下来 → 遮英文自测 → 回微信「翻译已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📦 今日弹药</div>
+  <div class="c-s">词汇块 · 趋势与变化类 下降/减少/降低</div>
+  <div class="lbl">下降/减少/降低</div>
+  <div class="words"><span>decline</span><span>decrease</span><span>drop</span><span>fall</span><span>shrink</span><span>dwindle</span><span>reduce</span><span>lessen</span></div><div class="words"><span>常见搭配：a sharp</span><span>steady</span><span>marked decline in...</span></div><div class="words"><span>被动搭配：has been reduced</span><span>has declined significantly</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">🎯 瑞斯拜12月版 · 中国传统家训记录了长辈对后…</div>
+  <div class="c-s">2026 下半年热点 · 先自己动笔翻，写不出来再对照背</div>
+  <div class="prompt">中国传统家训记录了长辈对后代的期望，内容常涉及勤奋、诚信、节俭和待人处事。它们既是家庭教育材料，也为了解过去的社会生活提供了线索。不同家训产生于不同环境，其中某些观念具有时代局限，不能不加分析地应用于今天。现代家庭在借鉴传统时，可以重视尊重他人、承担责任等原则，同时鼓励孩子独立思考和表达意见。家庭教育的效果不仅取决于说了什么，也取决于成年人如何在生活中示范。</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div><div class="seg"><div class="s-label">第 1 句</div><div class="sam-zh">中国传统家训记录了长辈对后代的期望，内容常涉及勤奋、诚信、节俭和待人处事。</div><div class="sam-en">Traditional Chinese family precepts record the expectations that elders held for later generations, and their content often concerns diligence, integrity, thrift and how to deal with others.</div></div><div class="seg"><div class="s-label">第 2 句</div><div class="sam-zh">它们既是家庭教育材料，也为了解过去的社会生活提供了线索。</div><div class="sam-en">They are both materials for family education and clues for understanding social life in the past.</div></div><div class="seg"><div class="s-label">第 3 句</div><div class="sam-zh">不同家训产生于不同环境，其中某些观念具有时代局限，不能不加分析地应用于今天。</div><div class="sam-en">Different precepts emerged in different circumstances, and some of the ideas in them bear the limitations of their times, so they cannot be applied to the present without analysis.</div></div><div class="seg"><div class="s-label">第 4 句</div><div class="sam-zh">现代家庭在借鉴传统时，可以重视尊重他人、承担责任等原则，同时鼓励孩子独立思考和表达意见。</div><div class="sam-en">In drawing on tradition, modern families can value principles such as respecting others and taking responsibility, while encouraging children to think independently and express their views.</div></div><div class="seg"><div class="s-label">第 5 句</div><div class="sam-zh">家庭教育的效果不仅取决于说了什么，也取决于成年人如何在生活中示范。</div><div class="sam-en">The effectiveness of family education depends not only on what is said but also on how adults set an example in daily life.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 亮点表达（本题专属·背这 5 个就够）</div>
+  <div class="c-s">题目括注的英文（如 new quality productive forces）必须原样用上，不要自己换说法</div>
+  <div class="ov-item"><div class="ov-en">family precepts</div><div class="ov-zh">家训，比 family rules 更有文化分量</div></div><div class="ov-item"><div class="ov-en">bear the limitations of their times</div><div class="ov-zh">具有时代局限</div></div><div class="ov-item"><div class="ov-en">draw on tradition</div><div class="ov-zh">借鉴传统</div></div><div class="ov-item"><div class="ov-en">set an example</div><div class="ov-zh">示范、以身作则</div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 必考句型 · 必考点 05</div>
+  <div class="c-s">公式：坐落在 / 位于 / 距…… —— 六级翻译出现率极高，背 3 个例句就够用</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')"><div class="r-hint">👆 遮英文自测</div><div class="seg"><div class="sam-zh">乌镇位于浙江省北部，距杭州约80公里。</div><div class="sam-en">Wuzhen is located in northern Zhejiang Province, about 80 kilometers from Hangzhou.</div></div><div class="seg"><div class="sam-zh">中国最大的水电站坐落在长江上。</div><div class="sam-en">China&#x27;s largest hydropower station is located on the Yangtze River.</div></div><div class="seg"><div class="sam-zh">泰山位于山东省中部。</div><div class="sam-en">Mount Tai is located in central Shandong Province.</div></div></div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（这类话题都用得上）</div>
+  <div class="c-s">先混个眼熟，翻译时来挑</div>
+  <div class="cw"><span>technology<em>科技</em></span><span>innovation<em>创新</em></span><span>artificial intelligence<em>人工智能</em></span><span>5G network<em>5G 网络</em></span><span>mobile payment<em>移动支付</em></span><span>high-speed railway<em>高铁</em></span><span>scientific breakthrough<em>科学突破</em></span><span>digital economy<em>数字经济</em></span></div>
+</div>
+
+<div class="foot">
+  <div class="done">翻完/背完回微信「翻译已背」✓ 背下来就是你的</div>
+</div>
+</div>
+</body>
+</html>

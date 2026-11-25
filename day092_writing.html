@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 92 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 模板套写板块（2026-11-10 用户手写模板） ── */
+  .trecite { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .trecite .s-label { background:#16A34A; }
+  .trecite.hide-en .sam-en { display:none; }
+  .trecite.hide-en .sam-zh { color:#16A34A; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 92 · 写作日<small>12月5日 · 周六</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 43 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay that begins with the sentence &quot;In a fast-paced society, the ability to focus deeply has become a rare and valuable skill.&quot;</div>
+    <div class="zh">深度专注的重要性（瑞斯拜12月②） · 指定首句作文 · 150-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>&lt;b&gt;核心立意：一次只做一件事——稀缺技能在分心时代反而值钱&lt;/b&gt;</div><div class="hint"><b>2</b>&lt;b&gt;金句直接背&lt;/b&gt;：in one sitting / guard one quiet hour each day</div><div class="hint"><b>3</b>&lt;b&gt;与手机/短视频题可互通&lt;/b&gt;：注意力时长被刷屏削弱的反面写法</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头段</div><div class="sam-en">In a fast-paced society, the ability to focus deeply has become a rare and valuable skill. Training this ability is, therefore, of great necessity. The following factors can account for this issue.</div><div class="sam-zh">在快节奏的社会中，深度专注的能力已成为一种稀缺而宝贵的技能。因此，培养这种能力十分必要。以下因素可以解释这一问题。</div></div><div class="seg"><div class="s-label">② 主体段</div><div class="sam-en">Firstly, due to the busy schedule of university life, college students — who are engaged in studying, club work and job hunting — are especially susceptible to omnipresent stress. Through focusing on one task at a time, their long-standing pressure can be effectively reduced. Moreover, emotional factors do play an important role in deep work. When students finish a difficult chapter in one sitting, the positive emotion of achievement can be triggered. At last, deep focus protects our physical and mental health in the long run. A recent survey shows that students who keep this habit report lower stress and better sleep, because they are no longer pushed around by endless notifications.</div><div class="sam-zh">首先，由于大学生活节奏紧张，忙于学业、社团工作和求职的大学生尤其容易受到无处不在的压力影响。通过一次只专注于一项任务，他们长期积累的压力可以得到有效缓解。此外，情绪因素在深度工作中确实发挥着重要作用。当学生一次性完成一章难度较大的内容时，成就感等积极情绪便会被激发出来。最后，从长远来看，深度专注有助于保护我们的身心健康。最近一项调查显示，保持这一习惯的学生报告称压力更小、睡眠更好，因为他们不再被无休止的通知牵着走。</div></div><div class="seg"><div class="s-label">③ 结尾段</div><div class="sam-en">Admittedly, training deep focus may take time and effort, but its long-term benefits are worth it. Once we spare no efforts to guard one quiet hour each day, it can benefit not only us but also our future careers.</div><div class="sam-zh">诚然，培养深度专注可能需要时间和努力，但其长期收益是值得的。只要我们不遗余力地守护每天一段安静的时光，它不仅能让我们受益，也将惠及我们的未来职业生涯。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🧩 你的模板 · 套写全文</div>
+  <div class="c-s">用你 11/10 手写模板套本题目 · 开头句=题干句照抄 · 骨架词与模板一致</div>
+  <div class="trecite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 模板开头 · 首句照抄+亮观点</div><div class="sam-en">In a fast-paced society, the ability to focus deeply has become a rare and valuable skill. In an increasingly interconnected world, deep focus stands out as an essential priority. It is of great necessity for students and young people to equip themselves with practical skills and experience. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">深度专注的重要性（瑞斯拜12月②）。（首句照抄）在这个联系日益紧密的世界里，深度专注脱颖而出，成为一项必不可少的优先事项。学生和年轻人有必要让自己掌握实用技能与经验。支持我观点的理由和具体证据如下。</div></div><div class="seg"><div class="s-label">② 模板主体 · 三层理由</div><div class="sam-en">Primarily, acquiring fundamental knowledge of deep focus yields immense benefits on a personal level, particularly in enhancing one&#x27;s future prospects and core competencies. Chiefly among these benefits is its significant contribution to finishing a difficult chapter in one sitting. Moreover, deep focus is instrumental in promoting lower stress and better sleep. This not only increases one&#x27;s chances of securing desirable positions but also lays a solid foundation for long-term professional growth and higher earning potential. Last but not least, the process of engaging with deep focus cultivates greater self-confidence and a sense of personal competence, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，掌握深度专注的基础知识会在个人层面带来巨大收益，尤其体现在提升个人前景与核心能力上。其中最主要的一点，是它对一口气啃完一章难内容有显著贡献。此外，深度专注有助于促进更小的压力与更好的睡眠。这不仅增加了获得理想职位的机会，也为长期职业发展和更高的收入潜力打下坚实基础。最后同样重要的是，参与深度专注的过程能培养更强的自信心和个人胜任感，让人更有把握地应对未来的挑战。</div></div><div class="seg"><div class="s-label">③ 模板结尾 · 总结展望</div><div class="sam-en">In a nutshell, it is clear that deep focus is of great importance for our future careers. Despite the difficulties and challenges we may encounter, we should never give up on it. In the future, we should continue to explore and develop deep focus, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">简而言之，深度专注对我们的未来职业的重要性显而易见。尽管我们可能遇到困难和挑战，但绝不应放弃。未来，我们应继续探索和发展深度专注，让它在人类文明的长河中绽放出更加耀眼的光芒。</div></div>
+  </div>
+  <div class="ammo">🧩 考场上开头句照抄题目给的；其余骨架词全是模板原词——背熟一个模板，题题能套。每题的套写文都配好了，背哪题看哪篇。</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>focus<em>专注</em></span><span>distraction<em>分心</em></span><span>habit<em>习惯</em></span><span>pressure<em>压力</em></span><span>sleep<em>睡眠</em></span><span>chapter<em>章节</em></span><span>career<em>职业</em></span><span>schedule<em>日程</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>deep focus</b><span class="zh">深度专注</span></div><div class="kw-item"><b>one task at a time</b><span class="zh">一次只做一件事</span></div><div class="kw-item"><b>in one sitting</b><span class="zh">一次性完成</span></div><div class="kw-item"><b>rare and valuable skill</b><span class="zh">稀缺而宝贵的技能</span></div><div class="kw-item"><b>positive emotion of achievement</b><span class="zh">成就感</span></div><div class="kw-item"><b>fast-paced society</b><span class="zh">快节奏社会</span></div><div class="kw-item"><b>quiet hour</b><span class="zh">安静的时光</span></div><div class="kw-item"><b>in the long run</b><span class="zh">从长远来看</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>DAY 94 · 写作日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif; background:#F6F6F8; color:#1F2329; line-height:1.7; }
+  .wrap { max-width:480px; width:100%; margin:0 auto; padding:18px 16px calc(28px + env(safe-area-inset-bottom)); }
+  header { padding:6px 4px 14px; }
+  .daylabel { font-size:15px; font-weight:700; color:#FF6B00; letter-spacing:.5px; }
+  .daylabel small { color:#8A8F99; font-weight:500; margin-left:6px; font-size:12px; }
+  .why { margin-top:10px; font-size:14px; color:#5A6070; background:#fff; border-radius:14px; padding:12px 14px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.9; }
+  .card { background:#fff; border-radius:16px; padding:16px 16px 14px; margin-top:14px; box-shadow:0 2px 10px rgba(31,35,41,.04); }
+  .c-t { font-size:16px; font-weight:700; }
+  .c-s { font-size:12px; color:#8A8F99; margin:2px 0 10px; }
+  .topic { background:#FFF7ED; border-left:4px solid #FF6B00; border-radius:0 12px 12px 0; padding:14px; }
+  .topic .en { font-size:16px; font-weight:700; line-height:1.5; }
+  .topic .zh { font-size:13px; color:#5A6070; margin-top:4px; }
+  .req { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .req span { font-size:11px; font-weight:600; color:#3B82F6; background:#EFF6FF; border-radius:6px; padding:3px 10px; }
+  .hint { background:#F6F6F8; border-radius:12px; padding:10px 14px; margin-top:8px; font-size:13px; color:#1F2329; }
+  .hint b { color:#FF6B00; margin-right:4px; }
+  .ammo { font-size:12px; color:#5A6070; background:#F0FDF4; border-radius:10px; padding:10px 12px; margin-top:12px; line-height:1.9; }
+  /* ── v2 背诵范文 ── */
+  .recite { background:#F0F7FF; border:1.5px solid #C7DDF8; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .r-hint { text-align:center; font-size:12px; color:#8A8F99; margin-bottom:10px; }
+  .recite.hide-en .r-hint { color:#2563EB; font-weight:700; }
+  .seg { background:#fff; border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  .s-label { display:inline-block; font-size:12px; font-weight:700; color:#fff; background:#3B82F6; border-radius:8px; padding:2px 10px; margin-bottom:8px; }
+  .sam-en { font-size:20px; line-height:1.95; color:#111827; font-weight:500; letter-spacing:.2px; }
+  .recite.hide-en .sam-en { display:none; }
+  .sam-zh { font-size:15px; color:#6B7280; margin-top:8px; line-height:1.85; }
+  .recite.hide-en .sam-zh { color:#2563EB; }
+  /* ── 模板套写板块（2026-11-10 用户手写模板） ── */
+  .trecite { background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:14px 14px 10px; margin-top:10px; cursor:pointer; }
+  .trecite .s-label { background:#16A34A; }
+  .trecite.hide-en .sam-en { display:none; }
+  .trecite.hide-en .sam-zh { color:#16A34A; }
+  /* ── 词汇板块 ── */
+  .cw { display:flex; flex-wrap:wrap; gap:8px; }
+  .cw span { font-size:16px; font-weight:600; color:#1D4ED8; background:#EFF6FF; border:1.5px solid #BFDBFE; border-radius:10px; padding:6px 12px; line-height:1.5; }
+  .cw em { font-style:normal; font-size:13px; font-weight:500; color:#6B7280; margin-left:4px; }
+  .kw-item { display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px dashed #E5E7EB; padding:10px 2px; }
+  .kw-item:last-child { border-bottom:none; }
+  .kw-item b { font-size:17px; color:#111827; font-weight:600; line-height:1.5; }
+  .kw-item .zh { font-size:15px; color:#C2410C; font-weight:600; text-align:right; flex-shrink:0; }
+  .foot { margin-top:16px; }
+  .done { text-align:center; font-size:12px; color:#8A8F99; background:#fff; border-radius:12px; padding:12px; box-shadow:0 2px 10px rgba(31,35,41,.04); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="daylabel">DAY 94 · 写作日<small>12月7日 · 周一</small></div>
+  <div class="why"><b>今日打法：</b>①先自己动笔写（30 分钟，写不全没关系）→ ②卡住了别硬憋：回来逐段背范文 → ③点范文区遮住英文，看中文回忆 → ④背完回微信「范文已背」</div>
+</header>
+
+<div class="card">
+  <div class="c-t">📝 今日题目</div>
+  <div class="c-s">第 44 篇 · CET-6 议论文</div>
+  <div class="topic">
+    <div class="en">Directions: Write an essay that begins with the sentence &quot;Before buying something new, it is helpful to ask whether we will really use it.&quot;</div>
+    <div class="zh">消费之前多想一步（瑞斯拜12月④） · 指定首句作文 · 150-200 词</div>
+  </div>
+  <div class="req"><span>⏱ 30 分钟</span><span>🦴 三段式</span><span>✍️ 先自己写</span><span>🔵 范文可背</span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">💡 三个可写方向（任选其二做主体段）</div>
+  <div class="c-s">论点不用原创——能自圆其说就是好论点</div>
+  <div class="hint"><b>1</b>&lt;b&gt;核心立意：理性消费=环保+省钱+内心秩序（环保线论证少见的消费题）&lt;/b&gt;</div><div class="hint"><b>2</b>&lt;b&gt;金句直接背&lt;/b&gt;：the simple lifestyle is becoming popular / think twice before paying</div><div class="hint"><b>3</b>&lt;b&gt;别写成理财文&lt;/b&gt;：落点在「只买真正需要的」带来的满足感</div>
+  <div class="ammo">🔋 高级替换：think→maintain · important→crucial · many→an increasing number of</div>
+</div>
+
+<div class="card">
+  <div class="c-t">🔵 背诵范文 · 逐段跟读</div>
+  <div class="c-s">简单好背 · 每段英文下配中文译文</div>
+  <div class="recite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 开头段</div><div class="sam-en">Before buying something new, it is helpful to ask whether we will really use it. Thinking twice before paying is, therefore, of great necessity. The following factors can account for this issue.</div><div class="sam-zh">在购买新东西之前，问问自己是否真的会用到它，是很有帮助的。因此，付款前三思而后行十分必要。以下因素可以解释这一点。</div></div><div class="seg"><div class="s-label">② 主体段</div><div class="sam-en">Firstly, with the increasing awareness of environmental protection, more and more people start to realize that it is more environmentally friendly to buy only what we truly need. As a result, the simple lifestyle is becoming popular among young people. Moreover, emotional factors do play an important role in rational spending. When students buy something they really use, the positive emotion of satisfaction can be triggered. At last, buying wisely protects our physical and mental health in the long run. A recent survey shows that students who keep this habit report lower stress and better sleep, because they are no longer pushed around by endless notifications.</div><div class="sam-zh">首先，随着环保意识的增强，越来越多的人开始意识到，只购买真正需要的东西更环保。因此，简约生活方式在年轻人中越来越受欢迎。此外，情感因素在理性消费中确实发挥着重要作用。当学生购买真正需要的东西时，满足感等积极情绪便会油然而生。最后，从长远来看，明智消费有助于保护我们的身心健康。最近一项调查显示，保持这一习惯的学生压力更小、睡眠更好，因为他们不再被无休止的促销活动牵着走。</div></div><div class="seg"><div class="s-label">③ 结尾段</div><div class="sam-en">Admittedly, thinking twice may take time and effort, but its long-term benefits are worth it. Once we spare no efforts to ask that one question before each order, it can benefit not only us but also the planet.</div><div class="sam-zh">诚然，三思而后行可能需要花费时间和精力，但其长远益处值得。一旦我们每次下单前都尽力问自己这个问题，它不仅能让我们受益，也能让地球受益。</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="c-t">🧩 你的模板 · 套写全文</div>
+  <div class="c-s">用你 11/10 手写模板套本题目 · 开头句=题干句照抄 · 骨架词与模板一致</div>
+  <div class="trecite" onclick="this.classList.toggle('hide-en')">
+    <div class="r-hint">👆 点这里遮住英文 · 看中文回忆 · 再点恢复</div>
+    <div class="seg"><div class="s-label">① 模板开头 · 首句照抄+亮观点</div><div class="sam-en">Before buying something new, it is helpful to ask whether we will really use it. In an increasingly interconnected world, rational spending stands out as an essential priority. It is of great necessity for students and young people to equip themselves with practical skills and experience. Reasons and concrete evidence to support my viewpoint are as follows.</div><div class="sam-zh">消费之前多想一步（瑞斯拜12月④）。（首句照抄）在这个联系日益紧密的世界里，理性消费脱颖而出，成为一项必不可少的优先事项。学生和年轻人有必要让自己掌握实用技能与经验。支持我观点的理由和具体证据如下。</div></div><div class="seg"><div class="s-label">② 模板主体 · 三层理由</div><div class="sam-en">Primarily, acquiring fundamental knowledge of rational spending yields immense benefits on a personal level, particularly in enhancing one&#x27;s future prospects and core competencies. Chiefly among these benefits is its significant contribution to buying something we really use. Moreover, rational spending is instrumental in promoting the simple lifestyle. This not only increases one&#x27;s chances of securing desirable positions but also lays a solid foundation for long-term professional growth and higher earning potential. Last but not least, the process of engaging with rational spending cultivates greater self-confidence and a sense of personal competence, empowering individuals to tackle future challenges with greater assurance.</div><div class="sam-zh">首先，掌握理性消费的基础知识会在个人层面带来巨大收益，尤其体现在提升个人前景与核心能力上。其中最主要的一点，是它对买真正用得上的东西有显著贡献。此外，理性消费有助于促进简约生活方式。这不仅增加了获得理想职位的机会，也为长期职业发展和更高的收入潜力打下坚实基础。最后同样重要的是，参与理性消费的过程能培养更强的自信心和个人胜任感，让人更有把握地应对未来的挑战。</div></div><div class="seg"><div class="s-label">③ 模板结尾 · 总结展望</div><div class="sam-en">In a nutshell, it is clear that rational spending is of great importance for us and the planet. Despite the difficulties and challenges we may encounter, we should never give up on it. In the future, we should continue to explore and develop rational spending, making it shine more brightly in the long river of human civilization.</div><div class="sam-zh">简而言之，理性消费对我们自己与地球的重要性显而易见。尽管我们可能遇到困难和挑战，但绝不应放弃。未来，我们应继续探索和发展理性消费，让它在人类文明的长河中绽放出更加耀眼的光芒。</div></div>
+  </div>
+  <div class="ammo">🧩 考场上开头句照抄题目给的；其余骨架词全是模板原词——背熟一个模板，题题能套。每题的套写文都配好了，背哪题看哪篇。</div>
+</div>
+
+<div class="card">
+  <div class="c-t">📌 话题常见词（写这类作文都用得上）</div>
+  <div class="c-s">先混个眼熟，写的时候来挑</div>
+  <div class="cw"><span>consumption<em>消费</em></span><span>wallet<em>钱包</em></span><span>order<em>订单</em></span><span>need<em>需要</em></span><span>habit<em>习惯</em></span><span>planet<em>地球</em></span><span>stress<em>压力</em></span><span>awareness<em>意识</em></span></div>
+</div>
+
+<div class="card">
+  <div class="c-t">⭐ 重点单词 · 词组（范文必背）</div>
+  <div class="c-s">背范文时顺手带走，考试直接套用</div>
+  <div class="kw-item"><b>think twice before paying</b><span class="zh">付款前三思</span></div><div class="kw-item"><b>rational spending</b><span class="zh">理性消费</span></div><div class="kw-item"><b>the simple lifestyle</b><span class="zh">简约生活方式</span></div><div class="kw-item"><b>environmentally friendly</b><span class="zh">环保的</span></div><div class="kw-item"><b>buy only what we truly need</b><span class="zh">只买真正需要的</span></div><div class="kw-item"><b>positive emotion of satisfaction</b><span class="zh">满足感</span></div><div class="kw-item"><b>endless promotions</b><span class="zh">无休止的促销</span></div><div class="kw-item"><b>in the long run</b><span class="zh">从长远来看</span></div>
+</div>
+
+<div class="foot">
+  <div class="done">写完发微信我逐句批改 / 背完回「范文已背」✓</div>
+</div>
+</div>
+</body>
+</html>
